@@ -61,8 +61,19 @@ nav > div:first-child > img {
 
 nav > div:last-child {
     display: flex;
+    position: relative;
     justify-content: flex-end;
     gap: 20px;
+}
+
+nav > div:last-child > span {
+    position: absolute;
+    font-size: 0.8rem;
+    font-weight: 400;
+    width: 200px;
+    height: auto;
+    right: 0;
+    bottom: 40px;
 }
 
 nav img, nav span {
