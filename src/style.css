@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: 1.2px;
+    font-size: 1.1rem;
+    color: white;
+}
+
+img {
+    width: 2rem;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    display: grid;
+    grid-template: 1fr / 1fr 4.5fr;
+    height: 100vh;
+    background: url(./imgs/bg.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 4px 0 6px rgba(255, 255, 255, 0.3);
+}
+
+nav > section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+    min-width: 230px;
+}
+
+nav > section:empty {
+    background-color: white;
+    height: 3px;
+    margin: 0 1rem;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+}
+
+nav > div:first-child {
+    flex-direction: row-reverse;
+}
+
+nav > div:first-child > img {
+    width: 3rem;
+    border-radius: 50%;
+}
+
+nav > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+nav img, nav span {
+    cursor: pointer;
+}
+
+main {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.colorContainer > span {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.colorContainer {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 1rem;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30%;
+    padding: 1rem;
+}
