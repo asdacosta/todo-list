@@ -16,3 +16,15 @@ const launchSettings = (function () {
         paintColorCircle();
     })
 })();
+
+const generateInfo = (function () {
+    const infoIcon = document.querySelector('.info');
+    const infoContent = document.querySelector('nav > div:last-child > span');
+
+    infoIcon.addEventListener('mouseover', () => {
+        infoContent.innerHTML = "Add your tasks in 'Today' or 'Upcoming' section and they will be assorted according to their respective categories."
+    })
+    infoIcon.addEventListener('mouseout', () => {
+        infoContent.textContent = '';
+    })
+})();
