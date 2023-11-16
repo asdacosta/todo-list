@@ -1,6 +1,7 @@
 import './style.css';
 import {displaySetting, paintColorCircle, generateColors} from './setting.js';
 import * as todayFunctions from './today.js';
+import * as todayUpcomingFunctions from './today-upcoming.js';
 
 const importAllImages = (function () {
     function importAll(r) {
@@ -16,9 +17,9 @@ const launchToday = (function () {
 
     todayDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            todayFunctions.displayTodayHeader();
+            todayUpcomingFunctions.displayHeader('Today');
             if (taskSection.textContent === '') {
-                todayFunctions.createAddTask();
+                todayUpcomingFunctions.createAddTask();
             }
         })
     })
