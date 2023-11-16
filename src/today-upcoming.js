@@ -1,6 +1,5 @@
 const displayHeader = function (textContent) {
     const header = document.querySelector('h2');
-    const titleSpans = document.querySelectorAll('.addTasksSection > span, .sortSection > span');
 
     switch(textContent) {
         case 'Today':
