@@ -12,3 +12,12 @@ Create Today modules
     * Delete span should remove this.Div.
 4. Add click event listener to ADDTASK
     * Call GENERATETASK
+
+Dialog to add Task
+1. At click on task dialog should pop-up
+2. If any of the required fields is not filled
+    * Dont add task
+    * Update infoSpan
+        - Display info for few seconds
+3. When fields are filled correctly
+    * Generate the div
