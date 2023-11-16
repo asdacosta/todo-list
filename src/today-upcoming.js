@@ -39,13 +39,15 @@ const createAddTaskElements = function (sectionClass) {
     moduleSection.appendChild(addTaskDiv);
 }
 
+let consolidatedArray = []; // 0 index takes today module current content and 1 index takes upcoming module current content.
 let todayTasksCount = 0;
 const createTodayAddTask = function () {
     const callAddTask = (function () {
         createAddTaskElements('.today-module');
         const addTaskDiv = document.querySelector('.today-module .addTaskDiv');
+        const moduleSection = document.querySelector('.today-module');
 
-        return {addTaskDiv};
+        return {addTaskDiv, moduleSection};
     })();
 
     const addNewTask = (function () {
@@ -66,6 +68,7 @@ const createTodayAddTask = function () {
             todayButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 generateTask('.today-module', '.today-dialog');
+                consolidatedArray[0] = callAddTask.moduleSection.innerHTML;
                 todayDialog.close();
             })
     })();
@@ -76,8 +79,9 @@ const createUpcomingAddTask = function () {
     const callAddTask = (function () {
         createAddTaskElements('.upcoming-module');
         const addTaskDiv = document.querySelector('.upcoming-module .addTaskDiv');
+        const moduleSection = document.querySelector('.upcoming-module');
 
-        return {addTaskDiv};
+        return {addTaskDiv, moduleSection};
     })();
 
     const addNewTask = (function () {
@@ -98,6 +102,7 @@ const createUpcomingAddTask = function () {
             upcomingButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 generateTask('.upcoming-module', '.upcoming-dialog');
+                consolidatedArray[1] = callAddTask.moduleSection.innerHTML;
                 upcomingDialog.close();
             })
     })();
@@ -157,12 +162,14 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
             if (sectionClass === '.today-module') {
                 todayTasksCount -= 1;
+                consolidatedArray[0] = createTaskElements.taskSection.innerHTML;
             } else if (sectionClass === '.upcoming-module') {
                 upcomingTasksCount -= 1;
+                consolidatedArray[1] = createTaskElements.taskSection.innerHTML;
             }
             createTaskElements.isFullSpan.textContent = '';
         })
     })();
 }
 
-export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask};
+export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, consolidatedArray};
