@@ -23,22 +23,6 @@ const displayHeader = function (textContent) {
     }
 };
 
-const restartCountForModules = (function () {
-    const todayDiv = document.querySelectorAll('.today');
-    const upcomingDiv = document.querySelectorAll('.upcoming');
-
-    todayDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            todayTasksCount = 0;
-        })
-    })
-    upcomingDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            upcomingTasksCount = 0;
-        })
-    })
-})();
-
 const createAddTaskElements = function (sectionClass) {
     const moduleSection = document.querySelector(`${sectionClass}`);
     const addTaskDiv = document.createElement('div');
@@ -74,6 +58,7 @@ const createTodayAddTask = function () {
                     todayDialog.showModal();
                     todayTasksCount += 1;
                 } else {
+                    todayDialog.close();
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                     isFullSpan.style.fontSize = '0.8rem';
                 }
@@ -105,6 +90,7 @@ const createUpcomingAddTask = function () {
                     upcomingDialog.showModal();
                     upcomingTasksCount += 1;
                 } else {
+                    upcomingDialog.close();
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                     isFullSpan.style.fontSize = '0.8rem';
                 }
@@ -156,7 +142,6 @@ function generateTask (sectionClass, dialogClass) {
         let dialogTaskValue = document.querySelector(`${dialogClass} #task`).value;
         let dialogSortValue = document.querySelector(`${dialogClass} #sort`).value;
         let dialogDueValue = document.querySelector(`${dialogClass} #due`).value;
-            console.log(dialogDueValue);
         let dialogDescriptionValue = document.querySelector(`${dialogClass} #description`).value;
 
         createTaskElements.textInput.textContent = dialogTaskValue;
@@ -170,9 +155,9 @@ function generateTask (sectionClass, dialogClass) {
     const deleteDiv = (function () {
         createTaskElements.deleteTask.addEventListener('click', () => {
             createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
-            if (date === 'Today') {
+            if (sectionClass === '.today-module') {
                 todayTasksCount -= 1;
-            } else if (date === 'Date') {
+            } else if (sectionClass === '.upcoming-module') {
                 upcomingTasksCount -= 1;
             }
             createTaskElements.isFullSpan.textContent = '';
