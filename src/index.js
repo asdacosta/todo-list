@@ -10,6 +10,10 @@ const importAllImages = (function () {
     const imgs = importAll(require.context('./imgs', false, /\.(png|jpe?g|svg)$/));
 })();
 
+const launchAtPageLoad = (function () {
+    todayUpcomingFunctions.displayHeader('Today');
+    todayUpcomingFunctions.createTodayAddTask();
+})();
 
 const launchToday = (function () {
     const todayDiv = document.querySelectorAll('.today');
