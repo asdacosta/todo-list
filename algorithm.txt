@@ -1,0 +1,14 @@
+Problem
+Creating different Single Responsibility modules for the to-do list.
+
+
+Algorithm
+Create Today modules
+1. Set HEADER content
+2. Create an ADDTASK element and add necessary styles.
+3. Create factory fxn GENERATETASK that generates a div element
+    * Div should contain radio-button input, text-input, span element containing 'Today', and another span containing 'Delete'
+    * Style div
+    * Delete span should remove this.Div.
+4. Add click event listener to ADDTASK
+    * Call GENERATETASK
