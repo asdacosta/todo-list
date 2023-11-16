@@ -14,12 +14,32 @@ const importAllImages = (function () {
 const launchToday = (function () {
     const todayDiv = document.querySelectorAll('.today');
     const taskSection = document.querySelector('main > section');
+    const isFullSpan = document.querySelector('main > span');
 
     todayDiv.forEach((item) => {
         item.addEventListener('click', () => {
+            taskSection.innerHTML = '';
+            isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Today');
             if (taskSection.textContent === '') {
-                todayUpcomingFunctions.createAddTask();
+                todayUpcomingFunctions.createTodayAddTask();
+            }
+        })
+    })
+})();
+
+const launchUpcoming = (function () {
+    const todayDiv = document.querySelectorAll('.upcoming');
+    const taskSection = document.querySelector('main > section');
+    const isFullSpan = document.querySelector('main > span');
+
+    todayDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            taskSection.innerHTML = '';
+            isFullSpan.innerHTML = '';
+            todayUpcomingFunctions.displayHeader('Upcoming');
+            if (taskSection.textContent === '') {
+                todayUpcomingFunctions.createUpcomingAddTask();
             }
         })
     })
