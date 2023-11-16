@@ -23,6 +23,22 @@ const displayHeader = function (textContent) {
     }
 };
 
+const restartCountForModules = (function () {
+    const todayDiv = document.querySelectorAll('.today');
+    const upcomingDiv = document.querySelectorAll('.upcoming');
+
+    todayDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            todayTasksCount = 0;
+        })
+    })
+    upcomingDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            upcomingTasksCount = 0;
+        })
+    })
+})();
+
 let todayTasksCount = 0;
 const createTodayAddTask = function () {
     const taskSection = document.querySelector('main > section');
