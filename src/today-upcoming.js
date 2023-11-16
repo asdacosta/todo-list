@@ -39,9 +39,8 @@ const restartCountForModules = (function () {
     })
 })();
 
-let todayTasksCount = 0;
-const createTodayAddTask = function () {
-    const todaySection = document.querySelector('.today-module');
+const createAddTaskElements = function (sectionClass) {
+    const moduleSection = document.querySelector(`${sectionClass}`);
     const addTaskDiv = document.createElement('div');
         addTaskDiv.classList.add('addTaskDiv');
     const plusSpan = document.createElement('span');
@@ -49,20 +48,28 @@ const createTodayAddTask = function () {
 
     plusSpan.textContent = '+';
     plusSpan.style.fontSize = '2rem';
-    plusSpan.style.paddingLeft = '10px';
     addTaskSpan.textContent = 'Add a task';
-    addTaskSpan.style.paddingLeft = '10px';
 
     addTaskDiv.appendChild(plusSpan);
     addTaskDiv.appendChild(addTaskSpan);
-    todaySection.appendChild(addTaskDiv);
+    moduleSection.appendChild(addTaskDiv);
+}
+
+let todayTasksCount = 0;
+const createTodayAddTask = function () {
+    const callAddTask = (function () {
+        createAddTaskElements('.today-module');
+        const addTaskDiv = document.querySelector('.today-module .addTaskDiv');
+
+        return {addTaskDiv};
+    })();
 
     const addNewTask = (function () {
         const isFullSpan = document.querySelector('main > span');
         const todayDialog = document.querySelector('.today-dialog');
         const todayButton = document.querySelector('.today-button');
 
-            addTaskDiv.addEventListener('click', () => {
+            callAddTask.addTaskDiv.addEventListener('click', () => {
                 if (todayTasksCount !== 5) {
                     todayDialog.showModal();
                     todayTasksCount += 1;
@@ -73,7 +80,7 @@ const createTodayAddTask = function () {
             })
             todayButton.addEventListener('click', (event) => {
                 event.preventDefault();
-                generateTask('Today', '.today-module', '.today-dialog');
+                generateTask('.today-module', '.today-dialog');
                 todayDialog.close();
             })
     })();
@@ -81,28 +88,19 @@ const createTodayAddTask = function () {
 
 let upcomingTasksCount = 0;
 const createUpcomingAddTask = function () {
-    const upcomingSection = document.querySelector('.upcoming-module');
-    const addTaskDiv = document.createElement('div');
-        addTaskDiv.classList.add('addTaskDiv');
-    const plusSpan = document.createElement('span');
-    const addTaskSpan = document.createElement('span');
+    const callAddTask = (function () {
+        createAddTaskElements('.upcoming-module');
+        const addTaskDiv = document.querySelector('.upcoming-module .addTaskDiv');
 
-    plusSpan.textContent = '+';
-    plusSpan.style.fontSize = '2rem';
-    plusSpan.style.paddingLeft = '10px';
-    addTaskSpan.textContent = 'Add a task';
-    addTaskSpan.style.paddingLeft = '10px';
-
-    addTaskDiv.appendChild(plusSpan);
-    addTaskDiv.appendChild(addTaskSpan);
-    upcomingSection.appendChild(addTaskDiv);
+        return {addTaskDiv};
+    })();
 
     const addNewTask = (function () {
         const isFullSpan = document.querySelector('main > span');
         const upcomingDialog = document.querySelector('.upcoming-dialog');
         const upcomingButton = document.querySelector('.upcoming-button');
 
-            addTaskDiv.addEventListener('click', () => {
+            callAddTask.addTaskDiv.addEventListener('click', () => {
                 if (upcomingTasksCount !== 5) {
                     upcomingDialog.showModal();
                     upcomingTasksCount += 1;
@@ -113,67 +111,45 @@ const createUpcomingAddTask = function () {
             })
             upcomingButton.addEventListener('click', (event) => {
                 event.preventDefault();
-                generateTask('Date', '.upcoming-module', '.upcoming-dialog');
+                generateTask('.upcoming-module', '.upcoming-dialog');
                 upcomingDialog.close();
             })
     })();
 }
 
 
-function generateTask (date, sectionClass, dialogClass) {
-    const taskSection = document.querySelector(`${sectionClass}`);
+function generateTask (sectionClass, dialogClass) {
 
-    const taskDiv = document.createElement('div');
+    const createTaskElements = (function () {
+        const taskSection = document.querySelector(`${sectionClass}`);
+        const taskDiv = document.createElement('div');
+        const check = document.createElement('input');
+        const textInput = document.createElement('div');
+        const dueDate = document.createElement('span');
+        const description = document.createElement('span');
+        const deleteTask = document.createElement('span');
+        const isFullSpan = document.querySelector('main > span');
+    
         taskDiv.classList.add('taskDiv');
-    const radio = document.createElement('input');
-    const textInput = document.createElement('div');
-    const dueDate = document.createElement('span');
-    const description = document.createElement('span');
-    const deleteTask = document.createElement('span');
+        textInput.classList.add('textInput');
+        dueDate.classList.add('dueDate');
+        description.classList.add('description');
         deleteTask.classList.add('deleteTask');
+    
+        check.setAttribute('type', 'checkbox');
+        check.setAttribute('value', 'check');
+        description.textContent = 'Description';
+        deleteTask.textContent = 'Delete';
 
-    const divArray = [radio, textInput, dueDate, description, deleteTask];
+        const appendTaskelements = (function () {
+        const divArray = [check, textInput, dueDate, description, deleteTask];
+            divArray.forEach((element) => {
+                taskDiv.appendChild(element);
+            })
+            taskSection.appendChild(taskDiv);
+        })();
 
-    radio.setAttribute('type', 'checkbox');
-    radio.setAttribute('value', 'check');
-    radio.style.gridRow = '1 / -1';
-    radio.style.width = '1rem';
-    radio.style.paddingLeft = '20px';
-
-    textInput.style.gridRow = '1 / 2';
-    textInput.style.gridColumn = '2 / span 3';
-
-    // dueDate.textContent = date;
-    dueDate.style.fontSize = '0.8rem';
-    dueDate.style.background = 'grey';
-    dueDate.style.gridRow = '2 / 3';
-    dueDate.style.gridColumn = '2 / 3';
-    dueDate.style.borderRadius = '20px';
-    dueDate.style.textAlign = 'center';
-
-    description.textContent = 'Description';
-    description.style.fontSize = '0.8rem';
-    description.style.background = 'grey';
-    description.style.gridRow = '2 / 3';
-    description.style.gridColumn = '3 / 4';
-    description.style.borderRadius = '20px';
-    description.style.textAlign = 'center';
-
-    deleteTask.textContent = 'Delete';
-    deleteTask.style.fontSize = '0.8rem';
-    deleteTask.style.background = 'red';
-    deleteTask.style.gridRow = '1 / -1';
-    deleteTask.style.gridColumn = 'span 1';
-    deleteTask.style.alignSelf = 'center';
-    deleteTask.style.borderRadius = '20px';
-    deleteTask.style.textAlign = 'center';
-    deleteTask.style.cursor = 'pointer';
-
-    const appendAllelements = (function () {
-        divArray.forEach((element) => {
-            taskDiv.appendChild(element);
-        })
-        taskSection.appendChild(taskDiv);
+        return {textInput, dueDate, deleteTask, taskSection, taskDiv};
     })();
 
     const setValues = (function () {
@@ -183,22 +159,25 @@ function generateTask (date, sectionClass, dialogClass) {
             console.log(dialogDueValue);
         let dialogDescriptionValue = document.querySelector(`${dialogClass} #description`).value;
 
-        textInput.textContent = dialogTaskValue;
-        dueDate.textContent = dialogDueValue;
+        createTaskElements.textInput.textContent = dialogTaskValue;
+        if (sectionClass === '.today-module') {
+            createTaskElements.dueDate.textContent = 'Today at ' + dialogDueValue;
+        } else {
+            createTaskElements.dueDate.textContent = dialogDueValue;
+        }
     })();
 
     const deleteDiv = (function () {
-        const isFullSpan = document.querySelector('main > span');
-        deleteTask.addEventListener('click', () => {
-            taskSection.removeChild(taskDiv);
+        createTaskElements.deleteTask.addEventListener('click', () => {
+            createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
             if (date === 'Today') {
                 todayTasksCount -= 1;
             } else if (date === 'Date') {
                 upcomingTasksCount -= 1;
             }
-            isFullSpan.textContent = '';
+            createTaskElements.isFullSpan.textContent = '';
         })
-    })()
+    })();
 }
 
 export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask};
