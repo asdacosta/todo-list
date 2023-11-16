@@ -59,15 +59,22 @@ const createTodayAddTask = function () {
 
     const addNewTask = (function () {
         const isFullSpan = document.querySelector('main > span');
+        const todayDialog = document.querySelector('.today-dialog');
+        const todayButton = document.querySelector('.today-button');
 
             addTaskDiv.addEventListener('click', () => {
                 if (todayTasksCount !== 5) {
-                    generateTask('Today', '.today-module');
+                    todayDialog.showModal();
+                    // generateTask('Today', '.today-module');
                     todayTasksCount += 1;
                 } else {
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                     isFullSpan.style.fontSize = '0.8rem';
                 }
+            })
+            todayButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                todayDialog.close();
             })
     })();
 }
@@ -92,15 +99,22 @@ const createUpcomingAddTask = function () {
 
     const addNewTask = (function () {
         const isFullSpan = document.querySelector('main > span');
+        const upcomingDialog = document.querySelector('.upcoming-dialog');
+        const upcomingButton = document.querySelector('.upcoming-button');
 
             addTaskDiv.addEventListener('click', () => {
                 if (upcomingTasksCount !== 5) {
-                    generateTask('Date', '.upcoming-module');
+                    upcomingDialog.showModal();
+                    // generateTask('Date', '.upcoming-module');
                     upcomingTasksCount += 1;
                 } else {
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                     isFullSpan.style.fontSize = '0.8rem';
                 }
+            })
+            upcomingButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                upcomingDialog.close();
             })
     })();
 }
