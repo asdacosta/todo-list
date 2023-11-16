@@ -13,36 +13,54 @@ const importAllImages = (function () {
 
 const launchToday = (function () {
     const todayDiv = document.querySelectorAll('.today');
-    const taskSection = document.querySelector('main > section');
+    const todaySection = document.querySelector('.today-module');
     const isFullSpan = document.querySelector('main > span');
+    let todayActive = false;
 
     todayDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            taskSection.innerHTML = '';
+            todayActive = true;
+            launchUpcoming.upcomingActive = false;
+            if (todayActive) {
+                launchUpcoming.upcomingSection.style.display = 'none';
+                todaySection.style.display = 'flex';
+            }
+
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Today');
-            if (taskSection.textContent === '') {
+            if (todaySection.textContent === '') {
                 todayUpcomingFunctions.createTodayAddTask();
             }
         })
     })
+
+    return {todayActive, todaySection};
 })();
 
 const launchUpcoming = (function () {
-    const todayDiv = document.querySelectorAll('.upcoming');
-    const taskSection = document.querySelector('main > section');
+    const upcomingDiv = document.querySelectorAll('.upcoming');
+    const upcomingSection = document.querySelector('.upcoming-module');
     const isFullSpan = document.querySelector('main > span');
+    let upcomingActive = false;
 
-    todayDiv.forEach((item) => {
+    upcomingDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            taskSection.innerHTML = '';
+            upcomingActive = true;
+            launchToday.todayActive = false;
+            if (upcomingActive) {
+                launchToday.todaySection.style.display = 'none';
+                upcomingSection.style.display = 'flex';
+            }
+
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Upcoming');
-            if (taskSection.textContent === '') {
+            if (upcomingSection.textContent === '') {
                 todayUpcomingFunctions.createUpcomingAddTask();
             }
         })
     })
+
+    return {upcomingActive, upcomingSection};
 })();
 
 const launchSettings = (function () {
