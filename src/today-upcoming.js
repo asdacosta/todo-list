@@ -41,7 +41,7 @@ const restartCountForModules = (function () {
 
 let todayTasksCount = 0;
 const createTodayAddTask = function () {
-    const taskSection = document.querySelector('main > section');
+    const todaySection = document.querySelector('.today-module');
     const addTaskDiv = document.createElement('div');
         addTaskDiv.classList.add('addTaskDiv');
     const plusSpan = document.createElement('span');
@@ -55,14 +55,14 @@ const createTodayAddTask = function () {
 
     addTaskDiv.appendChild(plusSpan);
     addTaskDiv.appendChild(addTaskSpan);
-    taskSection.appendChild(addTaskDiv);
+    todaySection.appendChild(addTaskDiv);
 
     const addNewTask = (function () {
         const isFullSpan = document.querySelector('main > span');
 
             addTaskDiv.addEventListener('click', () => {
-                if ( todayTasksCount !== 5) {
-                    generateTask('Today');
+                if (todayTasksCount !== 5) {
+                    generateTask('Today', '.today-module');
                     todayTasksCount += 1;
                 } else {
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
@@ -74,7 +74,7 @@ const createTodayAddTask = function () {
 
 let upcomingTasksCount = 0;
 const createUpcomingAddTask = function () {
-    const taskSection = document.querySelector('main > section');
+    const upcomingSection = document.querySelector('.upcoming-module');
     const addTaskDiv = document.createElement('div');
         addTaskDiv.classList.add('addTaskDiv');
     const plusSpan = document.createElement('span');
@@ -88,14 +88,14 @@ const createUpcomingAddTask = function () {
 
     addTaskDiv.appendChild(plusSpan);
     addTaskDiv.appendChild(addTaskSpan);
-    taskSection.appendChild(addTaskDiv);
+    upcomingSection.appendChild(addTaskDiv);
 
     const addNewTask = (function () {
         const isFullSpan = document.querySelector('main > span');
 
             addTaskDiv.addEventListener('click', () => {
-                if ( upcomingTasksCount !== 5) {
-                    generateTask('Date');
+                if (upcomingTasksCount !== 5) {
+                    generateTask('Date', '.upcoming-module');
                     upcomingTasksCount += 1;
                 } else {
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
@@ -106,8 +106,8 @@ const createUpcomingAddTask = function () {
 }
 
 
-function generateTask (date) {
-    const taskSection = document.querySelector('main > section');
+function generateTask (date, sectionClass) {
+    const taskSection = document.querySelector(`${sectionClass}`);
 
     const taskDiv = document.createElement('div');
         taskDiv.classList.add('taskDiv');
