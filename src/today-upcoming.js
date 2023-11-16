@@ -149,7 +149,7 @@ function generateTask (sectionClass, dialogClass) {
             taskSection.appendChild(taskDiv);
         })();
 
-        return {textInput, dueDate, deleteTask, taskSection, taskDiv};
+        return {textInput, dueDate, deleteTask, taskSection, taskDiv, isFullSpan};
     })();
 
     const setValues = (function () {
