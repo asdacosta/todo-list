@@ -23,8 +23,8 @@ const displayHeader = function (textContent) {
     }
 };
 
-let tasksCount = 0;
-const createAddTask = function () {
+let todayTasksCount = 0;
+const createTodayAddTask = function () {
     const taskSection = document.querySelector('main > section');
     const addTaskDiv = document.createElement('div');
         addTaskDiv.classList.add('addTaskDiv');
@@ -45,9 +45,9 @@ const createAddTask = function () {
         const isFullSpan = document.querySelector('main > span');
 
             addTaskDiv.addEventListener('click', () => {
-                if ( tasksCount !== 5) {
-                    generateTask();
-                    tasksCount += 1;
+                if ( todayTasksCount !== 5) {
+                    generateTask('Today');
+                    todayTasksCount += 1;
                 } else {
                     isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                     isFullSpan.style.fontSize = '0.8rem';
@@ -56,7 +56,41 @@ const createAddTask = function () {
     })();
 }
 
-function generateTask () {
+let upcomingTasksCount = 0;
+const createUpcomingAddTask = function () {
+    const taskSection = document.querySelector('main > section');
+    const addTaskDiv = document.createElement('div');
+        addTaskDiv.classList.add('addTaskDiv');
+    const plusSpan = document.createElement('span');
+    const addTaskSpan = document.createElement('span');
+
+    plusSpan.textContent = '+';
+    plusSpan.style.fontSize = '2rem';
+    plusSpan.style.paddingLeft = '10px';
+    addTaskSpan.textContent = 'Add a task';
+    addTaskSpan.style.paddingLeft = '10px';
+
+    addTaskDiv.appendChild(plusSpan);
+    addTaskDiv.appendChild(addTaskSpan);
+    taskSection.appendChild(addTaskDiv);
+
+    const addNewTask = (function () {
+        const isFullSpan = document.querySelector('main > span');
+
+            addTaskDiv.addEventListener('click', () => {
+                if ( upcomingTasksCount !== 5) {
+                    generateTask('Date');
+                    upcomingTasksCount += 1;
+                } else {
+                    isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
+                    isFullSpan.style.fontSize = '0.8rem';
+                }
+            })
+    })();
+}
+
+
+function generateTask (date) {
     const taskSection = document.querySelector('main > section');
 
     const taskDiv = document.createElement('div');
@@ -80,7 +114,7 @@ function generateTask () {
     textInput.style.gridRow = '1 / 2';
     textInput.style.gridColumn = '2 / span 2';
 
-    dueDate.textContent = 'Today';
+    dueDate.textContent = date;
     dueDate.style.fontSize = '0.8rem';
     dueDate.style.background = 'grey';
     dueDate.style.gridRow = '2 / 3';
@@ -107,10 +141,14 @@ function generateTask () {
         const isFullSpan = document.querySelector('main > span');
         deleteTask.addEventListener('click', () => {
             taskSection.removeChild(taskDiv);
-            tasksCount -= 1;
+            if (date === 'Today') {
+                todayTasksCount -= 1;
+            } else if (date === 'Date') {
+                upcomingTasksCount -= 1;
+            }
             isFullSpan.textContent = '';
         })
     })()
 }
 
-export {displayHeader, createAddTask, generateTask};
+export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask};
