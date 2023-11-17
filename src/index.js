@@ -1,6 +1,6 @@
 import './style.css';
 import {paintColorCircle, generateColors} from './setting.js';
-import * as todayFunctions from './today.js';
+// import * as todayFunctions from './today.js';
 import * as todayUpcomingFunctions from './today-upcoming.js';
 
 const importAllImages = (function () {
@@ -58,20 +58,19 @@ const launchToday = (function () {
         })
     })
 
-    return {todayActive, todaySection};
+    return {todayActive, todaySection, isFullSpan};
 })();
 
 const launchUpcoming = (function () {
     const upcomingDiv = document.querySelectorAll('.upcoming');
     const upcomingSection = document.querySelector('.upcoming-module');
-    const isFullSpan = document.querySelector('main > span');
     let upcomingActive = false;
 
     upcomingDiv.forEach((item) => {
         item.addEventListener('click', () => {
             toggleModule(launchUpcoming.upcomingSection, launchUpcoming.upcomingActive);
 
-            isFullSpan.innerHTML = '';
+            launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Upcoming');
             if (upcomingSection.textContent === '') {
                 todayUpcomingFunctions.createUpcomingAddTask();
@@ -85,14 +84,13 @@ const launchUpcoming = (function () {
 const launchConsolidated = (function () {
     const consolidatedDiv = document.querySelectorAll('.consolidated');
     const consolidatedSection = document.querySelector('.consolidated-module');
-    const isFullSpan = document.querySelector('main > span');
     let consolidatedActive = false;
 
     consolidatedDiv.forEach((item) => {
         item.addEventListener('click', () => {
             toggleModule(launchConsolidated.consolidatedSection, launchConsolidated.consolidatedActive);
 
-            isFullSpan.innerHTML = '';
+            launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Consolidated Tasks');
             consolidatedSection.innerHTML = `${todayUpcomingFunctions.consolidatedArray[0]} ${todayUpcomingFunctions.consolidatedArray[1]}`;
         })
@@ -103,14 +101,13 @@ const launchConsolidated = (function () {
 const launchPersonal = (function () {
     const personalDiv = document.querySelectorAll('.personals');
     const personalSection = document.querySelector('.personal-module');
-    const isFullSpan = document.querySelector('main > span');
     
     let personalActive = false;
     personalDiv.forEach((item) => {
         item.addEventListener('click', () => {
             toggleModule(launchPersonal.personalSection, launchPersonal.personalActive);
 
-            isFullSpan.innerHTML = '';
+            launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Personal');
             personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
         })
@@ -122,14 +119,13 @@ const launchPersonal = (function () {
 const launchWork = (function () {
     const workDiv = document.querySelectorAll('.works');
     const workSection = document.querySelector('.work-module');
-    const isFullSpan = document.querySelector('main > span');
 
     let workActive = false;
     workDiv.forEach((item) => {
         item.addEventListener('click', () => {
             toggleModule(launchWork.workSection, launchWork.workActive);
 
-            isFullSpan.innerHTML = '';
+            launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Work');
             workSection.innerHTML = todayUpcomingFunctions.categories.work;
         })
@@ -142,14 +138,13 @@ const launchWork = (function () {
 const launchFamily = (function () {
     const familyDiv = document.querySelectorAll('.families');
     const familySection = document.querySelector('.family-module');
-    const isFullSpan = document.querySelector('main > span');
 
     let familyActive = false;
     familyDiv.forEach((item) => {
         item.addEventListener('click', () => {
             toggleModule(launchFamily.familySection, launchFamily.familyActive);
 
-            isFullSpan.innerHTML = '';
+            launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Family');
             familySection.innerHTML = todayUpcomingFunctions.categories.family;
         })
@@ -161,14 +156,13 @@ const launchFamily = (function () {
 const launchOther = (function () {
     const otherDiv = document.querySelectorAll('.others');
     const otherSection = document.querySelector('.other-module');
-    const isFullSpan = document.querySelector('main > span');
 
     let otherActive = false;
     otherDiv.forEach((item) => {
         item.addEventListener('click', () => {
             toggleModule(launchOther.otherSection, launchOther.otherActive);
 
-            isFullSpan.innerHTML = '';
+            launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Other');
             otherSection.innerHTML = todayUpcomingFunctions.categories.other;
         })
@@ -180,7 +174,6 @@ const launchOther = (function () {
 const launchSettings = (function () {
     const settingsIcon = document.querySelector('.settings');
     const settingsSection = document.querySelector('.settings-module');
-    const isFullSpan = document.querySelector('main > span');
     const colorChangeText = document.createElement('p');
     const colorContainer = document.createElement('div');
 
@@ -197,7 +190,7 @@ const launchSettings = (function () {
     settingsIcon.addEventListener('click', () => {
         toggleModule(launchSettings.settingsSection, launchSettings.settingsActive);
         
-        isFullSpan.innerHTML = '';
+        launchToday.isFullSpan.innerHTML = '';
         todayUpcomingFunctions.displayHeader('Settings');
 
         settingsSection.appendChild(colorChangeText);
