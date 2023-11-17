@@ -39,22 +39,21 @@ const createAddTaskElements = function (sectionClass) {
     moduleSection.appendChild(addTaskDiv);
 };
 
-const removeAddTaskDivsInConsolidated = function (sectionClass) {
+let consolidatedArray = ['', '']; // 0 index takes today module current content and 1 index takes upcoming module current content. Used empty strings to prevent display of undefined at consolidated tasks module (before clicks of other modules).
+const updateConsolidatedWithOnlyTaskDivs = function (sectionClass) {
     const moduleSection = document.querySelector(`${sectionClass}`);
     const moduleCopy = document.createElement('div');
-
     moduleCopy.innerHTML = moduleSection.innerHTML;
 
     const divToRemove = moduleCopy.querySelector('.addTaskDiv');
     moduleCopy.removeChild(divToRemove);
+
     if (sectionClass === '.today-module') {
         consolidatedArray[0] = moduleCopy.innerHTML;
     } else {
         consolidatedArray[1] = moduleCopy.innerHTML;
     }
 };
-
-let consolidatedArray = ['', '']; // 0 index takes today module current content and 1 index takes upcoming module current content. Used empty strings to prevent display of undefined at consolidated tasks module (before clicks of other modules).
 
 let todayTasksCount = 0;
 const createTodayAddTask = function () {
@@ -78,14 +77,13 @@ const createTodayAddTask = function () {
                     todayTasksCount += 1;
                 } else {
                     todayDialog.close();
-                    isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
-                    isFullSpan.style.fontSize = '0.8rem';
+                    isFullSpan.textContent = "📋 Don't set many tasks or procrastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                 }
             })
             todayButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 generateTask('.today-module', '.today-dialog');
-                removeAddTaskDivsInConsolidated('.today-module');
+                updateConsolidatedWithOnlyTaskDivs('.today-module');
                 todayDialog.close();
             })
     })();
@@ -113,19 +111,17 @@ const createUpcomingAddTask = function () {
                     upcomingTasksCount += 1;
                 } else {
                     upcomingDialog.close();
-                    isFullSpan.textContent = "📋 Don't set many tasks or procastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
-                    isFullSpan.style.fontSize = '0.8rem';
+                    isFullSpan.textContent = "📋 Don't set many tasks or procrastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
                 }
             })
             upcomingButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 generateTask('.upcoming-module', '.upcoming-dialog');
-                removeAddTaskDivsInConsolidated('.upcoming-module');
+                updateConsolidatedWithOnlyTaskDivs('.upcoming-module');
                 upcomingDialog.close();
             })
     })();
 }
-
 
 function generateTask (sectionClass, dialogClass) {
 
@@ -167,6 +163,21 @@ function generateTask (sectionClass, dialogClass) {
         let dialogDueValue = document.querySelector(`${dialogClass} #due`).value;
         let dialogDescriptionValue = document.querySelector(`${dialogClass} #description`).value;
 
+        const dontAddEmptyTask = (function () {
+            if (dialogTaskValue === '' || dialogSortValue === '' || dialogDueValue === '') {
+                createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
+                if (sectionClass === '.today-module') {
+                    todayTasksCount -= 1;
+                } else {
+                    upcomingTasksCount -= 1;
+                }
+                createTaskElements.isFullSpan.textContent = 'Description is the only optional field.';
+                setTimeout(() => {
+                    createTaskElements.isFullSpan.textContent = '';
+                }, 2000);
+            }
+        })()
+
         createTaskElements.textInput.textContent = dialogTaskValue;
         if (sectionClass === '.today-module') {
             createTaskElements.dueDate.textContent = 'Today at ' + dialogDueValue;
@@ -180,10 +191,10 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
             if (sectionClass === '.today-module') {
                 todayTasksCount -= 1;
-                removeAddTaskDivsInConsolidated('.today-module');
+                updateConsolidatedWithOnlyTaskDivs('.today-module');
             } else if (sectionClass === '.upcoming-module') {
                 upcomingTasksCount -= 1;
-                removeAddTaskDivsInConsolidated('.upcoming-module');
+                updateConsolidatedWithOnlyTaskDivs('.upcoming-module');
             }
             createTaskElements.isFullSpan.textContent = '';
         })
