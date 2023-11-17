@@ -50,21 +50,15 @@ const updateConsolidatedWithOnlyTaskDivs = function (sectionClass) {
 
     if (sectionClass === '.today-module') {
         consolidatedArray[0] = moduleCopy.innerHTML;
-        // console.log(consolidatedArray[0]);
     } else {
         consolidatedArray[1] = moduleCopy.innerHTML;
-        // console.log(consolidatedArray[1]);
     }
 };
 
 let categories = {personal: '', work: '', family: '', other: ''};
 const updateCategories = function () {
-    // const todayCopy = document.createElement('div');
-    // const upcomingCopy = document.createElement('div');
     const consolidatedCopy = document.createElement('div');
 
-    // todayCopy.innerHTML = consolidatedArray[0];
-    // upcomingCopy.innerHTML = consolidatedArray[1];
     consolidatedCopy.innerHTML = consolidatedArray[0] + consolidatedArray[1];
     console.log(consolidatedCopy);
 
@@ -72,16 +66,6 @@ const updateCategories = function () {
     const consolidatedWork = consolidatedCopy.querySelectorAll('.work');
     const consolidatedFamily = consolidatedCopy.querySelectorAll('.family');
     const consolidatedOther = consolidatedCopy.querySelectorAll('.other');
-
-    // const todayPersonal = todayCopy.querySelectorAll('.personal');
-    // const todayWork = todayCopy.querySelectorAll('.work');
-    // const todayFamily = todayCopy.querySelectorAll('.family');
-    // const todayOther = todayCopy.querySelectorAll('.other');
-
-    // const upcomingPersonal = upcomingCopy.querySelectorAll('.personal');
-    // const upcomingWork = upcomingCopy.querySelectorAll('.work');
-    // const upcomingFamily = upcomingCopy.querySelectorAll('.family');
-    // const upcomingOther = upcomingCopy.querySelectorAll('.other');
 
     let personalDivs = '';
     let workDivs = '';
@@ -218,7 +202,9 @@ function generateTask (sectionClass, dialogClass) {
         let dialogDescriptionValue = document.querySelector(`${dialogClass} #description`).value;
 
         createTaskElements.textInput.textContent = dialogTaskValue;
-        createTaskElements.taskDiv.classList.add(dialogSortValue);
+        if (dialogTaskValue !== '') {
+            createTaskElements.taskDiv.classList.add(dialogSortValue);
+        }
         if (sectionClass === '.today-module') {
             createTaskElements.dueDate.textContent = 'Today at ' + dialogDueValue;
         } else {
