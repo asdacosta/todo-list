@@ -1,3 +1,5 @@
+import * as todayUpcomingFunctions from './today-upcoming.js';
+
 const generateColors = (function () {
     const red = 'rgba(253, 111, 85, 0.7)';
     const yellow = 'rgba(252, 252, 106, 0.7)';
@@ -38,8 +40,8 @@ const paintColorCircle = function () {
 
 const displaySetting = function () {
 
-    const header = document.querySelector('h2');
-    header.textContent = 'Settings';
+    const settingSection = document.querySelector('.settings-module');
+    todayUpcomingFunctions.displayHeader('Settings');
 
     const colorChangeText = document.createElement('p');
     colorChangeText.textContent = 'Choose your desired color:';
@@ -52,8 +54,8 @@ const displaySetting = function () {
         colorContainer.appendChild(colorCircle);
     }
 
-    header.insertAdjacentElement('afterend', colorContainer);
-    header.insertAdjacentElement('afterend', colorChangeText);
+    settingSection.appendChild(colorChangeText);
+    settingSection.appendChild(colorContainer);
 };
 
 export {displaySetting, paintColorCircle, generateColors};
