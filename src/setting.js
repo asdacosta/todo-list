@@ -38,24 +38,4 @@ const paintColorCircle = function () {
     })
 };
 
-const displaySetting = function () {
-
-    const settingSection = document.querySelector('.settings-module');
-    todayUpcomingFunctions.displayHeader('Settings');
-
-    const colorChangeText = document.createElement('p');
-    colorChangeText.textContent = 'Choose your desired color:';
-
-    const colorContainer = document.createElement('div');
-    colorContainer.classList.add('colorContainer');
-    for (let m = 0; m < 6; m++) {
-        const colorCircle = document.createElement('span');
-        colorCircle.classList.add(`colorCircle${m}`);
-        colorContainer.appendChild(colorCircle);
-    }
-
-    settingSection.appendChild(colorChangeText);
-    settingSection.appendChild(colorContainer);
-};
-
-export {displaySetting, paintColorCircle, generateColors};
+export {paintColorCircle, generateColors};
