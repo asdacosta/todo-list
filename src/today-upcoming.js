@@ -50,9 +50,61 @@ const updateConsolidatedWithOnlyTaskDivs = function (sectionClass) {
 
     if (sectionClass === '.today-module') {
         consolidatedArray[0] = moduleCopy.innerHTML;
+        // console.log(consolidatedArray[0]);
     } else {
         consolidatedArray[1] = moduleCopy.innerHTML;
+        // console.log(consolidatedArray[1]);
     }
+};
+
+let categories = {personal: '', work: '', family: '', other: ''};
+const updateCategories = function () {
+    // const todayCopy = document.createElement('div');
+    // const upcomingCopy = document.createElement('div');
+    const consolidatedCopy = document.createElement('div');
+
+    // todayCopy.innerHTML = consolidatedArray[0];
+    // upcomingCopy.innerHTML = consolidatedArray[1];
+    consolidatedCopy.innerHTML = consolidatedArray[0] + consolidatedArray[1];
+    console.log(consolidatedCopy);
+
+    const consolidatedPersonal = consolidatedCopy.querySelectorAll('.personal');
+    const consolidatedWork = consolidatedCopy.querySelectorAll('.work');
+    const consolidatedFamily = consolidatedCopy.querySelectorAll('.family');
+    const consolidatedOther = consolidatedCopy.querySelectorAll('.other');
+
+    // const todayPersonal = todayCopy.querySelectorAll('.personal');
+    // const todayWork = todayCopy.querySelectorAll('.work');
+    // const todayFamily = todayCopy.querySelectorAll('.family');
+    // const todayOther = todayCopy.querySelectorAll('.other');
+
+    // const upcomingPersonal = upcomingCopy.querySelectorAll('.personal');
+    // const upcomingWork = upcomingCopy.querySelectorAll('.work');
+    // const upcomingFamily = upcomingCopy.querySelectorAll('.family');
+    // const upcomingOther = upcomingCopy.querySelectorAll('.other');
+
+    let personalDivs = '';
+    let workDivs = '';
+    let familyDivs = '';
+    let otherDivs = '';
+
+    consolidatedPersonal.forEach((element) => {
+        personalDivs += element.outerHTML;
+    })
+    consolidatedWork.forEach((element) => {
+        workDivs += element.outerHTML;
+    })
+    consolidatedFamily.forEach((element) => {
+        familyDivs += element.outerHTML;
+    })
+    consolidatedOther.forEach((element) => {
+        otherDivs += element.outerHTML;
+    })
+
+    categories.personal = personalDivs;
+    categories.work = workDivs;
+    categories.family = familyDivs;
+    categories.other = otherDivs;
 };
 
 let todayTasksCount = 0;
@@ -84,6 +136,7 @@ const createTodayAddTask = function () {
                 event.preventDefault();
                 generateTask('.today-module', '.today-dialog');
                 updateConsolidatedWithOnlyTaskDivs('.today-module');
+                updateCategories();
                 todayDialog.close();
             })
     })();
@@ -118,6 +171,7 @@ const createUpcomingAddTask = function () {
                 event.preventDefault();
                 generateTask('.upcoming-module', '.upcoming-dialog');
                 updateConsolidatedWithOnlyTaskDivs('.upcoming-module');
+                updateCategories();
                 upcomingDialog.close();
             })
     })();
@@ -163,26 +217,29 @@ function generateTask (sectionClass, dialogClass) {
         let dialogDueValue = document.querySelector(`${dialogClass} #due`).value;
         let dialogDescriptionValue = document.querySelector(`${dialogClass} #description`).value;
 
-        const dontAddEmptyTask = (function () {
-            if (dialogTaskValue === '' || dialogSortValue === '' || dialogDueValue === '') {
-                createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
-                if (sectionClass === '.today-module') {
-                    todayTasksCount -= 1;
-                } else {
-                    upcomingTasksCount -= 1;
-                }
-                createTaskElements.isFullSpan.textContent = 'Description is the only optional field.';
-                setTimeout(() => {
-                    createTaskElements.isFullSpan.textContent = '';
-                }, 2000);
-            }
-        })()
-
         createTaskElements.textInput.textContent = dialogTaskValue;
+        createTaskElements.taskDiv.classList.add(dialogSortValue);
         if (sectionClass === '.today-module') {
             createTaskElements.dueDate.textContent = 'Today at ' + dialogDueValue;
         } else {
             createTaskElements.dueDate.textContent = dialogDueValue;
+        }
+
+        return {dialogTaskValue, dialogSortValue, dialogDueValue};
+    })();
+
+    const dontAddEmptyTask = (function () {
+        if (setValues.dialogTaskValue === '' || setValues.dialogSortValue === '' || setValues.dialogDueValue === '') {
+            createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
+            if (sectionClass === '.today-module') {
+                todayTasksCount -= 1;
+            } else {
+                upcomingTasksCount -= 1;
+            }
+            createTaskElements.isFullSpan.textContent = 'Description is the only optional field.';
+            setTimeout(() => {
+                createTaskElements.isFullSpan.textContent = '';
+            }, 2000);
         }
     })();
 
@@ -201,4 +258,4 @@ function generateTask (sectionClass, dialogClass) {
     })();
 }
 
-export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, consolidatedArray};
+export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, consolidatedArray, categories};
