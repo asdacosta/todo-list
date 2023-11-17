@@ -20,6 +20,9 @@ const displayHeader = function (textContent) {
         case 'Family':
             header.textContent = 'Other';
             break;
+        case 'Settings':
+            header.textContent = 'Settings';
+            break;
     }
 };
 
