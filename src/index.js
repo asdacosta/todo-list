@@ -15,6 +15,31 @@ const launchTodayAtPageLoad = (function () {
     todayUpcomingFunctions.createTodayAddTask();
 })();
 
+const toggleModule = function (moduleSection, isActive) {
+    launchToday.todayActive = false;
+    launchUpcoming.upcomingActive = false;
+    launchConsolidated.consolidatedActive = false;
+    launchPersonal.personalActive = false;
+    launchWork.workActive = false;
+    launchFamily.familyActive = false;
+    launchOther.otherActive = false;
+    launchSettings.settingsActive = false;
+
+    isActive = true;
+    if (isActive) {
+        launchToday.todaySection.style.display = 'none';
+        launchUpcoming.upcomingSection.style.display = 'none';
+        launchConsolidated.consolidatedSection.style.display = 'none';
+        launchPersonal.personalSection.style.display = 'none';
+        launchWork.workSection.style.display = 'none';
+        launchFamily.familySection.style.display = 'none';
+        launchOther.otherSection.style.display = 'none';
+        launchSettings.settingsSection.style.display = 'none';
+
+        moduleSection.style.display = 'flex';
+    }
+}
+
 const launchToday = (function () {
     const todayDiv = document.querySelectorAll('.today');
     const todaySection = document.querySelector('.today-module');
@@ -23,24 +48,7 @@ const launchToday = (function () {
 
     todayDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            todayActive = true;
-            launchUpcoming.upcomingActive = false;
-            launchConsolidated.consolidatedActive = false;
-            launchPersonal.personalActive = false;
-            launchWork.workActive = false;
-            launchFamily.familyActive = false;
-            launchOther.otherActive = false;
-            launchSettings.settingsActive = false;
-            if (todayActive) {
-                launchUpcoming.upcomingSection.style.display = 'none';
-                launchConsolidated.consolidatedSection.style.display = 'none';
-                launchPersonal.personalSection.style.display = 'none';
-                launchWork.workSection.style.display = 'none';
-                launchFamily.familySection.style.display = 'none';
-                launchOther.otherSection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                todaySection.style.display = 'flex';
-            }
+            toggleModule(launchToday.todaySection, launchToday.todayActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Today');
@@ -61,24 +69,7 @@ const launchUpcoming = (function () {
 
     upcomingDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            upcomingActive = true;
-            launchToday.todayActive = false;
-            launchConsolidated.consolidatedActive = false;
-            launchPersonal.personalActive = false;
-            launchWork.workActive = false;
-            launchFamily.familyActive = false;
-            launchOther.otherActive = false;
-            launchSettings.settingsActive = false;
-            if (upcomingActive) {
-                launchToday.todaySection.style.display = 'none';
-                launchConsolidated.consolidatedSection.style.display = 'none';
-                launchPersonal.personalSection.style.display = 'none';
-                launchWork.workSection.style.display = 'none';
-                launchFamily.familySection.style.display = 'none';
-                launchOther.otherSection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                upcomingSection.style.display = 'flex';
-            }
+            toggleModule(launchUpcoming.upcomingSection, launchUpcoming.upcomingActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Upcoming');
@@ -99,24 +90,7 @@ const launchConsolidated = (function () {
 
     consolidatedDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            consolidatedActive = true;
-            launchToday.todayActive = false;
-            launchUpcoming.upcomingActive = false;
-            launchPersonal.personalActive = false;
-            launchWork.workActive = false;
-            launchFamily.familyActive = false;
-            launchOther.otherActive = false;
-            launchSettings.settingsActive = false;
-            if (consolidatedActive) {
-                launchToday.todaySection.style.display = 'none';
-                launchUpcoming.upcomingSection.style.display = 'none';
-                launchPersonal.personalSection.style.display = 'none';
-                launchWork.workSection.style.display = 'none';
-                launchFamily.familySection.style.display = 'none';
-                launchOther.otherSection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                consolidatedSection.style.display = 'flex';
-            }
+            toggleModule(launchConsolidated.consolidatedSection, launchConsolidated.consolidatedActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Consolidated Tasks');
@@ -134,28 +108,10 @@ const launchPersonal = (function () {
     let personalActive = false;
     personalDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            personalActive = true;
-            launchToday.todayActive = false;
-            launchUpcoming.upcomingActive = false;
-            launchConsolidated.consolidatedActive = false;
-            launchWork.workActive = false;
-            launchFamily.familyActive = false;
-            launchOther.otherActive = false;
-            launchSettings.settingsActive = false;
-            if (personalActive) {
-                launchToday.todaySection.style.display = 'none';
-                launchUpcoming.upcomingSection.style.display = 'none';
-                launchConsolidated.consolidatedSection.style.display = 'none';
-                launchWork.workSection.style.display = 'none';
-                launchFamily.familySection.style.display = 'none';
-                launchOther.otherSection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                personalSection.style.display = 'flex';
-            }
+            toggleModule(launchPersonal.personalSection, launchPersonal.personalActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Personal');
-            // console.log(todayUpcomingFunctions.categories);
             personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
         })
     })
@@ -171,24 +127,7 @@ const launchWork = (function () {
     let workActive = false;
     workDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            workActive = true;
-            launchToday.todayActive = false;
-            launchUpcoming.upcomingActive = false;
-            launchConsolidated.consolidatedActive = false;
-            launchPersonal.personalActive = false;
-            launchFamily.familyActive = false;
-            launchOther.otherActive = false;
-            launchSettings.settingsActive = false;
-            if (workActive) {
-                launchToday.todaySection.style.display = 'none';
-                launchUpcoming.upcomingSection.style.display = 'none';
-                launchConsolidated.consolidatedSection.style.display = 'none';
-                launchPersonal.personalSection.style.display = 'none';
-                launchFamily.familySection.style.display = 'none';
-                launchOther.otherSection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                workSection.style.display = 'flex';
-            }
+            toggleModule(launchWork.workSection, launchWork.workActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Work');
@@ -208,24 +147,7 @@ const launchFamily = (function () {
     let familyActive = false;
     familyDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            familyActive = true;
-            launchToday.todayActive = false;
-            launchUpcoming.upcomingActive = false;
-            launchConsolidated.consolidatedActive = false;
-            launchPersonal.personalActive = false;
-            launchWork.workActive = false;
-            launchOther.otherActive = false;
-            launchSettings.settingsActive = false;
-            if (familyActive) {
-                launchToday.todaySection.style.display = 'none';
-                launchUpcoming.upcomingSection.style.display = 'none';
-                launchConsolidated.consolidatedSection.style.display = 'none';
-                launchPersonal.personalSection.style.display = 'none';
-                launchWork.workSection.style.display = 'none';
-                launchOther.otherSection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                familySection.style.display = 'flex';
-            }
+            toggleModule(launchFamily.familySection, launchFamily.familyActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Family');
@@ -244,24 +166,7 @@ const launchOther = (function () {
     let otherActive = false;
     otherDiv.forEach((item) => {
         item.addEventListener('click', () => {
-            otherActive = true;
-            launchToday.todayActive = false;
-            launchUpcoming.upcomingActive = false;
-            launchConsolidated.consolidatedActive = false;
-            launchPersonal.personalActive = false;
-            launchWork.workActive = false;
-            launchFamily.familyActive = false;
-            launchSettings.settingsActive = false;
-            if (otherActive) {
-                launchToday.todaySection.style.display = 'none';
-                launchUpcoming.upcomingSection.style.display = 'none';
-                launchConsolidated.consolidatedSection.style.display = 'none';
-                launchPersonal.personalSection.style.display = 'none';
-                launchWork.workSection.style.display = 'none';
-                launchFamily.familySection.style.display = 'none';
-                launchSettings.settingsSection.style.display = 'none';
-                otherSection.style.display = 'flex';
-            }
+            toggleModule(launchOther.otherSection, launchOther.otherActive);
 
             isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Other');
@@ -290,24 +195,7 @@ const launchSettings = (function () {
 
     let settingsActive = false;
     settingsIcon.addEventListener('click', () => {
-        settingsActive = true;
-        launchToday.todayActive = false;
-        launchUpcoming.upcomingActive = false;
-        launchConsolidated.consolidatedActive = false;
-        launchPersonal.personalActive = false;
-        launchWork.workActive = false;
-        launchFamily.familyActive = false;
-        launchOther.otherActive = false;
-        if (settingsActive) {
-            launchToday.todaySection.style.display = 'none';
-            launchUpcoming.upcomingSection.style.display = 'none';
-            launchConsolidated.consolidatedSection.style.display = 'none';
-            launchPersonal.personalSection.style.display = 'none';
-            launchWork.workSection.style.display = 'none';
-            launchFamily.familySection.style.display = 'none';
-            launchOther.otherSection.style.display = 'none';
-            settingsSection.style.display = 'flex';
-        }
+        toggleModule(launchSettings.settingsSection, launchSettings.settingsActive);
         
         isFullSpan.innerHTML = '';
         todayUpcomingFunctions.displayHeader('Settings');
