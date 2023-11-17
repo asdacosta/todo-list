@@ -37,11 +37,28 @@ const createAddTaskElements = function (sectionClass) {
     addTaskDiv.appendChild(plusSpan);
     addTaskDiv.appendChild(addTaskSpan);
     moduleSection.appendChild(addTaskDiv);
-}
+};
 
-let consolidatedArray = []; // 0 index takes today module current content and 1 index takes upcoming module current content.
+const removeAddTaskDivsInConsolidated = function (sectionClass) {
+    const moduleSection = document.querySelector(`${sectionClass}`);
+    const moduleCopy = document.createElement('div');
+
+    moduleCopy.innerHTML = moduleSection.innerHTML;
+
+    const divToRemove = moduleCopy.querySelector('.addTaskDiv');
+    moduleCopy.removeChild(divToRemove);
+    if (sectionClass === '.today-module') {
+        consolidatedArray[0] = moduleCopy.innerHTML;
+    } else {
+        consolidatedArray[1] = moduleCopy.innerHTML;
+    }
+};
+
+let consolidatedArray = ['', '']; // 0 index takes today module current content and 1 index takes upcoming module current content. Used empty strings to prevent display of undefined at consolidated tasks module (before clicks of other modules).
+
 let todayTasksCount = 0;
 const createTodayAddTask = function () {
+
     const callAddTask = (function () {
         createAddTaskElements('.today-module');
         const addTaskDiv = document.querySelector('.today-module .addTaskDiv');
@@ -68,7 +85,7 @@ const createTodayAddTask = function () {
             todayButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 generateTask('.today-module', '.today-dialog');
-                consolidatedArray[0] = callAddTask.moduleSection.innerHTML;
+                removeAddTaskDivsInConsolidated('.today-module');
                 todayDialog.close();
             })
     })();
@@ -76,6 +93,7 @@ const createTodayAddTask = function () {
 
 let upcomingTasksCount = 0;
 const createUpcomingAddTask = function () {
+
     const callAddTask = (function () {
         createAddTaskElements('.upcoming-module');
         const addTaskDiv = document.querySelector('.upcoming-module .addTaskDiv');
@@ -102,7 +120,7 @@ const createUpcomingAddTask = function () {
             upcomingButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 generateTask('.upcoming-module', '.upcoming-dialog');
-                consolidatedArray[1] = callAddTask.moduleSection.innerHTML;
+                removeAddTaskDivsInConsolidated('.upcoming-module');
                 upcomingDialog.close();
             })
     })();
@@ -162,10 +180,10 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
             if (sectionClass === '.today-module') {
                 todayTasksCount -= 1;
-                consolidatedArray[0] = createTaskElements.taskSection.innerHTML;
+                removeAddTaskDivsInConsolidated('.today-module');
             } else if (sectionClass === '.upcoming-module') {
                 upcomingTasksCount -= 1;
-                consolidatedArray[1] = createTaskElements.taskSection.innerHTML;
+                removeAddTaskDivsInConsolidated('.upcoming-module');
             }
             createTaskElements.isFullSpan.textContent = '';
         })
