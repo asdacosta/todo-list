@@ -26,9 +26,17 @@ const launchToday = (function () {
             todayActive = true;
             launchUpcoming.upcomingActive = false;
             launchConsolidated.consolidatedActive = false;
+            launchPersonal.personalActive = false;
+            launchWork.workActive = false;
+            launchFamily.familyActive = false;
+            launchOther.otherActive = false;
             if (todayActive) {
                 launchUpcoming.upcomingSection.style.display = 'none';
                 launchConsolidated.consolidatedSection.style.display = 'none';
+                launchPersonal.personalSection.style.display = 'none';
+                launchWork.workSection.style.display = 'none';
+                launchFamily.familySection.style.display = 'none';
+                launchOther.otherSection.style.display = 'none';
                 todaySection.style.display = 'flex';
             }
 
@@ -54,9 +62,17 @@ const launchUpcoming = (function () {
             upcomingActive = true;
             launchToday.todayActive = false;
             launchConsolidated.consolidatedActive = false;
+            launchPersonal.personalActive = false;
+            launchWork.workActive = false;
+            launchFamily.familyActive = false;
+            launchOther.otherActive = false;
             if (upcomingActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchConsolidated.consolidatedSection.style.display = 'none';
+                launchPersonal.personalSection.style.display = 'none';
+                launchWork.workSection.style.display = 'none';
+                launchFamily.familySection.style.display = 'none';
+                launchOther.otherSection.style.display = 'none';
                 upcomingSection.style.display = 'flex';
             }
 
@@ -82,9 +98,17 @@ const launchConsolidated = (function () {
             consolidatedActive = true;
             launchToday.todayActive = false;
             launchUpcoming.upcomingActive = false;
+            launchPersonal.personalActive = false;
+            launchWork.workActive = false;
+            launchFamily.familyActive = false;
+            launchOther.otherActive = false;
             if (consolidatedActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchUpcoming.upcomingSection.style.display = 'none';
+                launchPersonal.personalSection.style.display = 'none';
+                launchWork.workSection.style.display = 'none';
+                launchFamily.familySection.style.display = 'none';
+                launchOther.otherSection.style.display = 'none';
                 consolidatedSection.style.display = 'flex';
             }
 
@@ -94,6 +118,144 @@ const launchConsolidated = (function () {
         })
     })
     return {consolidatedActive, consolidatedSection};
+})();
+
+const launchPersonal = (function () {
+    const personalDiv = document.querySelectorAll('.personals');
+    const personalSection = document.querySelector('.personal-module');
+    const isFullSpan = document.querySelector('main > span');
+    
+    let personalActive = false;
+    personalDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            personalActive = true;
+            launchToday.todayActive = false;
+            launchUpcoming.upcomingActive = false;
+            launchConsolidated.consolidatedActive = false;
+            launchWork.workActive = false;
+            launchFamily.familyActive = false;
+            launchOther.otherActive = false;
+            if (personalActive) {
+                launchToday.todaySection.style.display = 'none';
+                launchUpcoming.upcomingSection.style.display = 'none';
+                launchConsolidated.consolidatedSection.style.display = 'none';
+                launchWork.workSection.style.display = 'none';
+                launchFamily.familySection.style.display = 'none';
+                launchOther.otherSection.style.display = 'none';
+                personalSection.style.display = 'flex';
+            }
+
+            isFullSpan.innerHTML = '';
+            todayUpcomingFunctions.displayHeader('Personal');
+            // console.log(todayUpcomingFunctions.categories);
+            personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
+        })
+    })
+
+    return {personalActive, personalSection};
+})();
+
+const launchWork = (function () {
+    const workDiv = document.querySelectorAll('.works');
+    const workSection = document.querySelector('.work-module');
+    const isFullSpan = document.querySelector('main > span');
+
+    let workActive = false;
+    workDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            workActive = true;
+            launchToday.todayActive = false;
+            launchUpcoming.upcomingActive = false;
+            launchConsolidated.consolidatedActive = false;
+            launchPersonal.personalActive = false;
+            launchFamily.familyActive = false;
+            launchOther.otherActive = false;
+            if (workActive) {
+                launchToday.todaySection.style.display = 'none';
+                launchUpcoming.upcomingSection.style.display = 'none';
+                launchConsolidated.consolidatedSection.style.display = 'none';
+                launchPersonal.personalSection.style.display = 'none';
+                launchFamily.familySection.style.display = 'none';
+                launchOther.otherSection.style.display = 'none';
+                workSection.style.display = 'flex';
+            }
+
+            isFullSpan.innerHTML = '';
+            todayUpcomingFunctions.displayHeader('Work');
+            workSection.innerHTML = todayUpcomingFunctions.categories.work;
+        })
+    })
+
+    return {workActive, workSection};
+
+})();
+
+const launchFamily = (function () {
+    const familyDiv = document.querySelectorAll('.families');
+    const familySection = document.querySelector('.family-module');
+    const isFullSpan = document.querySelector('main > span');
+
+    let familyActive = false;
+    familyDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            familyActive = true;
+            launchToday.todayActive = false;
+            launchUpcoming.upcomingActive = false;
+            launchConsolidated.consolidatedActive = false;
+            launchPersonal.personalActive = false;
+            launchWork.workActive = false;
+            launchOther.otherActive = false;
+            if (familyActive) {
+                launchToday.todaySection.style.display = 'none';
+                launchUpcoming.upcomingSection.style.display = 'none';
+                launchConsolidated.consolidatedSection.style.display = 'none';
+                launchPersonal.personalSection.style.display = 'none';
+                launchWork.workSection.style.display = 'none';
+                launchOther.otherSection.style.display = 'none';
+                familySection.style.display = 'flex';
+            }
+
+            isFullSpan.innerHTML = '';
+            todayUpcomingFunctions.displayHeader('Family');
+            familySection.innerHTML = todayUpcomingFunctions.categories.family;
+        })
+    })
+
+    return {familyActive, familySection};
+})();
+
+const launchOther = (function () {
+    const otherDiv = document.querySelectorAll('.others');
+    const otherSection = document.querySelector('.other-module');
+    const isFullSpan = document.querySelector('main > span');
+
+    let otherActive = false;
+    otherDiv.forEach((item) => {
+        item.addEventListener('click', () => {
+            otherActive = true;
+            launchToday.todayActive = false;
+            launchUpcoming.upcomingActive = false;
+            launchConsolidated.consolidatedActive = false;
+            launchPersonal.personalActive = false;
+            launchWork.workActive = false;
+            launchFamily.familyActive = false;
+            if (otherActive) {
+                launchToday.todaySection.style.display = 'none';
+                launchUpcoming.upcomingSection.style.display = 'none';
+                launchConsolidated.consolidatedSection.style.display = 'none';
+                launchPersonal.personalSection.style.display = 'none';
+                launchWork.workSection.style.display = 'none';
+                launchFamily.familySection.style.display = 'none';
+                otherSection.style.display = 'flex';
+            }
+
+            isFullSpan.innerHTML = '';
+            todayUpcomingFunctions.displayHeader('Other');
+            otherSection.innerHTML = todayUpcomingFunctions.categories.other;
+        })
+    })
+
+    return {otherActive, otherSection};
 })();
 
 const launchSettings = (function () {
