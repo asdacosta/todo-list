@@ -1,5 +1,5 @@
 import './style.css';
-import {displaySetting, paintColorCircle, generateColors} from './setting.js';
+import {paintColorCircle, generateColors} from './setting.js';
 import * as todayFunctions from './today.js';
 import * as todayUpcomingFunctions from './today-upcoming.js';
 
@@ -30,6 +30,7 @@ const launchToday = (function () {
             launchWork.workActive = false;
             launchFamily.familyActive = false;
             launchOther.otherActive = false;
+            launchSettings.settingsActive = false;
             if (todayActive) {
                 launchUpcoming.upcomingSection.style.display = 'none';
                 launchConsolidated.consolidatedSection.style.display = 'none';
@@ -37,6 +38,7 @@ const launchToday = (function () {
                 launchWork.workSection.style.display = 'none';
                 launchFamily.familySection.style.display = 'none';
                 launchOther.otherSection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 todaySection.style.display = 'flex';
             }
 
@@ -66,6 +68,7 @@ const launchUpcoming = (function () {
             launchWork.workActive = false;
             launchFamily.familyActive = false;
             launchOther.otherActive = false;
+            launchSettings.settingsActive = false;
             if (upcomingActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchConsolidated.consolidatedSection.style.display = 'none';
@@ -73,6 +76,7 @@ const launchUpcoming = (function () {
                 launchWork.workSection.style.display = 'none';
                 launchFamily.familySection.style.display = 'none';
                 launchOther.otherSection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 upcomingSection.style.display = 'flex';
             }
 
@@ -102,6 +106,7 @@ const launchConsolidated = (function () {
             launchWork.workActive = false;
             launchFamily.familyActive = false;
             launchOther.otherActive = false;
+            launchSettings.settingsActive = false;
             if (consolidatedActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchUpcoming.upcomingSection.style.display = 'none';
@@ -109,6 +114,7 @@ const launchConsolidated = (function () {
                 launchWork.workSection.style.display = 'none';
                 launchFamily.familySection.style.display = 'none';
                 launchOther.otherSection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 consolidatedSection.style.display = 'flex';
             }
 
@@ -135,6 +141,7 @@ const launchPersonal = (function () {
             launchWork.workActive = false;
             launchFamily.familyActive = false;
             launchOther.otherActive = false;
+            launchSettings.settingsActive = false;
             if (personalActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchUpcoming.upcomingSection.style.display = 'none';
@@ -142,6 +149,7 @@ const launchPersonal = (function () {
                 launchWork.workSection.style.display = 'none';
                 launchFamily.familySection.style.display = 'none';
                 launchOther.otherSection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 personalSection.style.display = 'flex';
             }
 
@@ -170,6 +178,7 @@ const launchWork = (function () {
             launchPersonal.personalActive = false;
             launchFamily.familyActive = false;
             launchOther.otherActive = false;
+            launchSettings.settingsActive = false;
             if (workActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchUpcoming.upcomingSection.style.display = 'none';
@@ -177,6 +186,7 @@ const launchWork = (function () {
                 launchPersonal.personalSection.style.display = 'none';
                 launchFamily.familySection.style.display = 'none';
                 launchOther.otherSection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 workSection.style.display = 'flex';
             }
 
@@ -205,6 +215,7 @@ const launchFamily = (function () {
             launchPersonal.personalActive = false;
             launchWork.workActive = false;
             launchOther.otherActive = false;
+            launchSettings.settingsActive = false;
             if (familyActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchUpcoming.upcomingSection.style.display = 'none';
@@ -212,6 +223,7 @@ const launchFamily = (function () {
                 launchPersonal.personalSection.style.display = 'none';
                 launchWork.workSection.style.display = 'none';
                 launchOther.otherSection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 familySection.style.display = 'flex';
             }
 
@@ -239,6 +251,7 @@ const launchOther = (function () {
             launchPersonal.personalActive = false;
             launchWork.workActive = false;
             launchFamily.familyActive = false;
+            launchSettings.settingsActive = false;
             if (otherActive) {
                 launchToday.todaySection.style.display = 'none';
                 launchUpcoming.upcomingSection.style.display = 'none';
@@ -246,6 +259,7 @@ const launchOther = (function () {
                 launchPersonal.personalSection.style.display = 'none';
                 launchWork.workSection.style.display = 'none';
                 launchFamily.familySection.style.display = 'none';
+                launchSettings.settingsSection.style.display = 'none';
                 otherSection.style.display = 'flex';
             }
 
@@ -260,10 +274,50 @@ const launchOther = (function () {
 
 const launchSettings = (function () {
     const settingsIcon = document.querySelector('.settings');
+    const settingsSection = document.querySelector('.settings-module');
+    const isFullSpan = document.querySelector('main > span');
+    const colorChangeText = document.createElement('p');
+    const colorContainer = document.createElement('div');
+
+    colorChangeText.textContent = 'Choose your desired color:';
+    colorContainer.classList.add('colorContainer');
+
+    for (let m = 0; m < 6; m++) {
+        const colorCircle = document.createElement('span');
+        colorCircle.classList.add(`colorCircle${m}`);
+        colorContainer.appendChild(colorCircle);
+    }
+
+    let settingsActive = false;
     settingsIcon.addEventListener('click', () => {
-        displaySetting();
+        settingsActive = true;
+        launchToday.todayActive = false;
+        launchUpcoming.upcomingActive = false;
+        launchConsolidated.consolidatedActive = false;
+        launchPersonal.personalActive = false;
+        launchWork.workActive = false;
+        launchFamily.familyActive = false;
+        launchOther.otherActive = false;
+        if (settingsActive) {
+            launchToday.todaySection.style.display = 'none';
+            launchUpcoming.upcomingSection.style.display = 'none';
+            launchConsolidated.consolidatedSection.style.display = 'none';
+            launchPersonal.personalSection.style.display = 'none';
+            launchWork.workSection.style.display = 'none';
+            launchFamily.familySection.style.display = 'none';
+            launchOther.otherSection.style.display = 'none';
+            settingsSection.style.display = 'flex';
+        }
+        
+        isFullSpan.innerHTML = '';
+        todayUpcomingFunctions.displayHeader('Settings');
+
+        settingsSection.appendChild(colorChangeText);
+        settingsSection.appendChild(colorContainer);
         paintColorCircle();
     })
+
+    return {settingsActive, settingsSection};
 })();
 
 const generateInfo = (function () {
