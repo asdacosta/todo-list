@@ -60,7 +60,6 @@ const updateCategories = function () {
     const consolidatedCopy = document.createElement('div');
 
     consolidatedCopy.innerHTML = consolidatedArray[0] + consolidatedArray[1];
-    console.log(consolidatedCopy);
 
     const consolidatedPersonal = consolidatedCopy.querySelectorAll('.personal');
     const consolidatedWork = consolidatedCopy.querySelectorAll('.work');
@@ -202,7 +201,7 @@ function generateTask (sectionClass, dialogClass) {
         let dialogDescriptionValue = document.querySelector(`${dialogClass} #description`).value;
 
         createTaskElements.textInput.textContent = dialogTaskValue;
-        if (dialogTaskValue !== '') {
+        if (dialogTaskValue !== '' && dialogSortValue !== '' && dialogDueValue !== '') {
             createTaskElements.taskDiv.classList.add(dialogSortValue);
         }
         if (sectionClass === '.today-module') {
@@ -215,7 +214,7 @@ function generateTask (sectionClass, dialogClass) {
     })();
 
     const dontAddEmptyTask = (function () {
-        if (setValues.dialogTaskValue === '' || setValues.dialogSortValue === '' || setValues.dialogDueValue === '') {
+        if (setValues.dialogTaskValue === '' || setValues.dialogSortValue === '' || setValues.dialogDueValue === '') { 
             createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
             if (sectionClass === '.today-module') {
                 todayTasksCount -= 1;
