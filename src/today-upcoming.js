@@ -216,8 +216,19 @@ function generateTask (sectionClass, dialogClass) {
         return {dialogTaskValue, dialogSortValue, dialogDueValue};
     })();
 
-    const dontAddTaskWithPastDateOrTime = (function () {
+    const removeTaskAndUpdateCount = function () {
+        createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
+        if (sectionClass === '.today-module') {
+            todayTasksCount -= 1;
+        } else {
+            upcomingTasksCount -= 1;
+        }
+        setTimeout(() => {
+            createTaskElements.isFullSpan.textContent = '';
+        }, 2500);
+    }
 
+    const dontAddTaskWithPastDateOrTime = (function () {
         if (sectionClass === '.upcoming-module') {
             const upcomingDueDate = document.querySelector('input[type="date"]');
             const upcomingDueDateValue = new Date(upcomingDueDate.value).getTime();
@@ -226,16 +237,8 @@ function generateTask (sectionClass, dialogClass) {
 
             upcomingDueDate.setAttribute('min', currentDate);
             if (upcomingDueDateValue < currentTime) {
-                createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
-                if (sectionClass === '.today-module') {
-                    todayTasksCount -= 1;
-                } else {
-                    upcomingTasksCount -= 1;
-                }
+                removeTaskAndUpdateCount();
                 createTaskElements.isFullSpan.textContent = 'We are living in the present. Kindly enter a current date.';
-                setTimeout(() => {
-                    createTaskElements.isFullSpan.textContent = '';
-                }, 2500);
             }
         } else {
             const todayDueTime = document.querySelector('input[type="time"]');
@@ -244,32 +247,16 @@ function generateTask (sectionClass, dialogClass) {
             const todayDueTimeValue = new Date(todayDueTimeString);
 
             if (todayDueTimeValue < todayDate) {
-                createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
-                if (sectionClass === '.today-module') {
-                    todayTasksCount -= 1;
-                } else {
-                    upcomingTasksCount -= 1;
-                }
+                removeTaskAndUpdateCount();
                 createTaskElements.isFullSpan.textContent = 'We are living in the present. Kindly enter a current time.';
-                setTimeout(() => {
-                    createTaskElements.isFullSpan.textContent = '';
-                }, 2500);
             }
         }
     })();
 
     const dontAddEmptyTask = (function () {
-        if (setValues.dialogTaskValue === '' || setValues.dialogSortValue === '' || setValues.dialogDueValue === '') { 
-            createTaskElements.taskSection.removeChild(createTaskElements.taskDiv);
-            if (sectionClass === '.today-module') {
-                todayTasksCount -= 1;
-            } else {
-                upcomingTasksCount -= 1;
-            }
+        if (setValues.dialogTaskValue === '' || setValues.dialogSortValue === '' || setValues.dialogDueValue === '') {
+            removeTaskAndUpdateCount();
             createTaskElements.isFullSpan.textContent = 'Description is the only optional field.';
-            setTimeout(() => {
-                createTaskElements.isFullSpan.textContent = '';
-            }, 2500);
         }
     })();
 
