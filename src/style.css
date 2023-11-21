@@ -10,6 +10,7 @@
 img {
     width: 2rem;
     background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
 }
 
 body {
@@ -86,11 +87,33 @@ main {
     padding: 5rem;
 }
 
+main > div {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    width: 250px;
+    height: auto;
+    right: 5rem;
+    top: 13rem;
+    padding: 10px;
+    border-radius: 30px;
+    border: 5px solid white;
+}
+
+main > div > span {
+    font-size: 0.9rem;
+}
+
 main > section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 2px solid teal;
+}
+
+h3 {
+    font-size: 1.2rem;
 }
 
 h2 {
@@ -122,6 +145,7 @@ h2 {
 }
 
 .addTaskDiv {
+    order: 1;
     border: 1px solid white;
     border-radius: 20px;
     height: 50px;
@@ -140,7 +164,8 @@ h2 {
     border: 1px solid white;
     border-radius: 20px;
     height: 50px;
-    padding-left: 10px;
+    padding: 0 10px;
+    width: 80%;
 }
 
 dialog {
