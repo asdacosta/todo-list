@@ -194,7 +194,7 @@ function generateTask (sectionClass, dialogClass) {
             taskSection.appendChild(taskDiv);
         })();
 
-        return {textInput, dueDate, deleteTask, taskSection, taskDiv, isFullSpan};
+        return {textInput, dueDate, description, deleteTask, taskSection, taskDiv, isFullSpan};
     })();
 
     const setValues = (function () {
@@ -213,7 +213,25 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.dueDate.textContent = dialogDueValue;
         }
 
-        return {dialogTaskValue, dialogSortValue, dialogDueValue};
+        return {dialogTaskValue, dialogSortValue, dialogDueValue, dialogDescriptionValue};
+    })();
+
+    const displayDescription = (function () {
+        const descriptionBox = document.querySelector('main > div');
+        const descriptionContent = document.querySelector('main > div > span');
+
+        // createTaskElements.description.setAttribute('data-description', `${setValues.dialogDescriptionValue}`);
+        createTaskElements.description.style.cursor = 'pointer';
+
+        createTaskElements.description.addEventListener('mouseover', () => {
+            descriptionBox.style.display = 'flex';
+            // descriptionContent.textContent = createTaskElements.description.dataset.description;
+            descriptionContent.textContent = setValues.dialogDescriptionValue;
+        })
+        createTaskElements.description.addEventListener('mouseout', () => {
+            descriptionBox.style.display = 'none';
+            descriptionContent.textContent = '';
+        })
     })();
 
     const removeTaskAndUpdateCount = function () {
