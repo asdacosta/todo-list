@@ -1,6 +1,5 @@
 import './style.css';
 import {paintColorCircle, generateColors} from './setting.js';
-// import * as todayFunctions from './today.js';
 import * as todayUpcomingFunctions from './today-upcoming.js';
 
 const importAllImages = (function () {
