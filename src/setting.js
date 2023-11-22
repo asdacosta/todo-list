@@ -105,18 +105,18 @@ const setColor = function () {
                 circle.style.border = '2px solid white';
                 const computedStyle = window.getComputedStyle(circle);
                 computedColor = computedStyle.backgroundColor;
-                setInterval(() => {
+                // setInterval(() => {
                     elementsToChange(computedColor);
-                }, 10);
+                // }, 100);
             })
         })
     })();
 
-    const setDefaultColor = (function () {
-        if (chooseColorActive !== true) {
-            elementsToChange(generateColors.blue);
-        }
-    })();
+    // const setDefaultColor = (function () {
+    //     if (chooseColorActive === false) {
+    //         elementsToChange(generateColors.blue);
+    //     }
+    // })();
 };
 
 export {paintColorCircle, setColor, generateColors, chooseColorActive};
