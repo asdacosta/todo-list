@@ -12,7 +12,7 @@ const importAllImages = (function () {
 const launchTodayAtPageLoad = (function () {
     todayUpcomingFunctions.displayHeader('Today');
     todayUpcomingFunctions.createTodayAddTask();
-    // setColor();
+    setColor();
 })();
 
 const toggleModule = function (moduleSection, isActive) {
