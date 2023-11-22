@@ -224,7 +224,7 @@ const generateInfo = (function () {
     infoIcon.addEventListener('mouseover', () => {
         infoContent.style.border = '2px solid white';
         infoContent.style.padding = '5px';
-        infoContent.innerHTML = "Add tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks, delete, and view descriptions only in the named sections."
+        infoContent.innerHTML = "Add tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks in the named sections."
     })
     infoIcon.addEventListener('mouseout', () => {
         infoContent.style.border = 'none';
