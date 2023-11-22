@@ -117,7 +117,7 @@ const createTodayAddTask = function () {
                     todayTasksCount += 1;
                 } else {
                     todayDialog.close();
-                    isFullSpan.textContent = "📋 Don't set many tasks or procrastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
+                    isFullSpan.textContent = "📋 Avoid task overload or procrastination. Limit tasks to 5 daily; finish one to add a new task.";
                 }
             })
             todayButton.addEventListener('click', (event) => {
@@ -152,7 +152,7 @@ const createUpcomingAddTask = function () {
                     upcomingTasksCount += 1;
                 } else {
                     upcomingDialog.close();
-                    isFullSpan.textContent = "📋 Don't set many tasks or procrastinate current ones. You can only add 5 daily tasks. Complete a task and delete it to add a new one.";
+                    isFullSpan.textContent = "📋 Avoid task overload or procrastination. Limit tasks to 5 daily; finish one and delete it to add a new task.";
                 }
             })
             upcomingButton.addEventListener('click', (event) => {
