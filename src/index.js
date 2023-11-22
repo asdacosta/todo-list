@@ -94,8 +94,8 @@ const launchConsolidated = (function () {
             todayUpcomingFunctions.displayHeader('Consolidated Tasks');
             consolidatedSection.innerHTML = `${todayUpcomingFunctions.consolidatedArray[0]} ${todayUpcomingFunctions.consolidatedArray[1]}`;
 
-            todayUpcomingFunctions.colorGeneratedTasks();
             displayDescription('.consolidated-module');
+            todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
     return {consolidatedActive, consolidatedSection};
@@ -114,6 +114,7 @@ const launchPersonal = (function () {
             todayUpcomingFunctions.displayHeader('Personal');
             personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
 
+            displayDescription('.personal-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -134,6 +135,7 @@ const launchWork = (function () {
             todayUpcomingFunctions.displayHeader('Work');
             workSection.innerHTML = todayUpcomingFunctions.categories.work;
 
+            displayDescription('.work-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -155,6 +157,7 @@ const launchFamily = (function () {
             todayUpcomingFunctions.displayHeader('Family');
             familySection.innerHTML = todayUpcomingFunctions.categories.family;
 
+            displayDescription('.family-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -175,6 +178,7 @@ const launchOther = (function () {
             todayUpcomingFunctions.displayHeader('Other');
             otherSection.innerHTML = todayUpcomingFunctions.categories.other;
 
+            displayDescription('.other-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
