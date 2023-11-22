@@ -220,7 +220,13 @@ function generateTask (sectionClass, dialogClass) {
         if (sectionClass === '.today-module') {
             createTaskElements.dueDate.textContent = 'Today at ' + dialogDueValue;
         } else {
-            createTaskElements.dueDate.textContent = dialogDueValue;
+            function formatDate(inputDate) {
+                const date = new Date(inputDate);
+                const options = { month: 'long', day: 'numeric', year: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            }
+            let formattedDate = formatDate(dialogDueValue);
+            createTaskElements.dueDate.textContent = formattedDate;
         }
 
         const addDescriptionValueToDataAttributeForUseInCategorySections = (function () {
