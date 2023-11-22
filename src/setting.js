@@ -38,4 +38,67 @@ const paintColorCircle = function () {
     })
 };
 
-export {paintColorCircle, generateColors};
+let chooseColorActive = false;
+const setColor = function () {
+    const elementsToChange = function (color) {
+        const hoveringEffect = (function () {
+            const hoveringElements = document.querySelectorAll('.addTasksSection > div, .sortSection > div');
+
+            hoveringElements.forEach((div, index) => {
+                div.classList.add(`div${index}`);
+                const hoveringImg = document.querySelector(`.div${index} img`);
+                const hoveringSpan = document.querySelector(`.div${index} span`);
+                div.addEventListener('mouseover', () => {
+                    hoveringImg.style.background = color;
+                    hoveringSpan.style.color = color;
+                })
+                div.addEventListener('mouseout', () => {
+                    hoveringImg.style.background = 'rgba(255, 255, 255, 0.7)';
+                    hoveringSpan.style.color = 'white';
+                })
+            })
+        })();
+
+        const constantEffect = (function () {
+            const backgroundconstantChangeElements = document.querySelectorAll('nav > section:empty, nav > div:last-child > span, .addTaskDiv, dialog');
+            const descriptionBox = document.querySelector('main > div');
+            const taskDivs = document.querySelectorAll('.taskDiv');
+
+            backgroundconstantChangeElements.forEach((element) => {
+                element.style.background = color;
+            })
+            taskDivs.forEach((div) => {
+                div.style.border = `2px solid ${color}`;
+            })
+            descriptionBox.style.border = `5px solid ${color}`;
+        })();
+    }
+
+    const setChooseColor = (function () {
+        const colorCircles = document.querySelectorAll('.colorContainer > span');
+
+        let computedColor = null;
+        colorCircles.forEach((circle) => {
+            circle.addEventListener('click', () => {
+                chooseColorActive = true;
+
+                colorCircles.forEach((otherCircle) => {
+                    otherCircle.style.border = 'none';
+                })
+    
+                circle.style.border = '2px solid white';
+                const computedStyle = window.getComputedStyle(circle);
+                computedColor = computedStyle.backgroundColor;
+                setInterval(() => {
+                    elementsToChange(computedColor);
+                }, 100);
+            })
+        })
+    })();
+
+    const setDefaultColor = (function () {
+        elementsToChange(generateColors.blue);
+    })();
+};
+
+export {paintColorCircle, setColor, generateColors, chooseColorActive};
