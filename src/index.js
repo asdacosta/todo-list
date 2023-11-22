@@ -12,7 +12,7 @@ const importAllImages = (function () {
 const launchTodayAtPageLoad = (function () {
     todayUpcomingFunctions.displayHeader('Today');
     todayUpcomingFunctions.createTodayAddTask();
-    setColor();
+    // setColor();
 })();
 
 const toggleModule = function (moduleSection, isActive) {
@@ -75,7 +75,7 @@ const launchUpcoming = (function () {
             if (upcomingSection.textContent === '') {
                 todayUpcomingFunctions.createUpcomingAddTask();
             }
-            setColor();
+            // setColor();
         })
     })
 
@@ -94,6 +94,8 @@ const launchConsolidated = (function () {
             launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Consolidated Tasks');
             consolidatedSection.innerHTML = `${todayUpcomingFunctions.consolidatedArray[0]} ${todayUpcomingFunctions.consolidatedArray[1]}`;
+
+            todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
     return {consolidatedActive, consolidatedSection};
@@ -111,6 +113,8 @@ const launchPersonal = (function () {
             launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Personal');
             personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
+
+            todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
 
@@ -129,6 +133,8 @@ const launchWork = (function () {
             launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Work');
             workSection.innerHTML = todayUpcomingFunctions.categories.work;
+
+            todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
 
@@ -148,6 +154,8 @@ const launchFamily = (function () {
             launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Family');
             familySection.innerHTML = todayUpcomingFunctions.categories.family;
+
+            todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
 
@@ -166,6 +174,8 @@ const launchOther = (function () {
             launchToday.isFullSpan.innerHTML = '';
             todayUpcomingFunctions.displayHeader('Other');
             otherSection.innerHTML = todayUpcomingFunctions.categories.other;
+
+            todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
 
@@ -210,7 +220,7 @@ const generateInfo = (function () {
     infoIcon.addEventListener('mouseover', () => {
         infoContent.style.border = '2px solid white';
         infoContent.style.padding = '5px';
-        infoContent.innerHTML = "Add your tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks per section."
+        infoContent.innerHTML = "Add tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks, delete, and view descriptions only in the named sections."
     })
     infoIcon.addEventListener('mouseout', () => {
         infoContent.style.border = 'none';
