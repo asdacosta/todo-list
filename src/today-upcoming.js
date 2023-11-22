@@ -199,6 +199,8 @@ function generateTask (sectionClass, dialogClass) {
         return {textInput, dueDate, description, deleteTask, taskSection, taskDiv, isFullSpan};
     })();
 
+    colorGeneratedTasks();
+
     const setValues = (function () {
         let dialogTaskValue = document.querySelector(`${dialogClass} #task`).value;
         let dialogSortValue = document.querySelector(`${dialogClass} #sort`).value;
@@ -294,7 +296,7 @@ function generateTask (sectionClass, dialogClass) {
 
     const setDefaultColorIfNoneIsChosen = (function () {
         if (chooseColorActive !== true) {
-            setColor();
+            // setColor();
         }
     })();
 
@@ -339,4 +341,15 @@ function generateTask (sectionClass, dialogClass) {
     })();
 }
 
-export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, consolidatedArray, categories};
+const colorGeneratedTasks = function () {
+    const taskDivs = document.querySelectorAll('.taskDiv');
+    const emptySection = document.querySelector('nav > section:empty')
+    const computedStyle = window.getComputedStyle(emptySection);
+    let computedColor = computedStyle.backgroundColor;
+
+    taskDivs.forEach((div) => {
+        div.style.border = `2px solid ${computedColor}`;
+    })
+};
+
+export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, colorGeneratedTasks, consolidatedArray, categories};
