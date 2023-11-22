@@ -222,8 +222,6 @@ function generateTask (sectionClass, dialogClass) {
         const descriptionBox = document.querySelector('main > div');
         const descriptionContent = document.querySelector('main > div > span');
 
-        createTaskElements.description.style.cursor = 'pointer';
-
         createTaskElements.description.addEventListener('mouseover', () => {
             descriptionBox.style.display = 'flex';
             descriptionContent.textContent = setValues.dialogDescriptionValue;
