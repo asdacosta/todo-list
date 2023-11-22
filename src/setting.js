@@ -48,11 +48,19 @@ const setColor = function () {
                 div.classList.add(`div${index}`);
                 const hoveringImg = document.querySelector(`.div${index} img`);
                 const hoveringSpan = document.querySelector(`.div${index} span`);
-                div.addEventListener('mouseover', () => {
+                hoveringImg.addEventListener('mouseover', () => {
                     hoveringImg.style.background = color;
                     hoveringSpan.style.color = color;
                 })
-                div.addEventListener('mouseout', () => {
+                hoveringImg.addEventListener('mouseout', () => {
+                    hoveringImg.style.background = 'rgba(255, 255, 255, 0.7)';
+                    hoveringSpan.style.color = 'white';
+                })
+                hoveringSpan.addEventListener('mouseover', () => {
+                    hoveringImg.style.background = color;
+                    hoveringSpan.style.color = color;
+                })
+                hoveringSpan.addEventListener('mouseout', () => {
                     hoveringImg.style.background = 'rgba(255, 255, 255, 0.7)';
                     hoveringSpan.style.color = 'white';
                 })
