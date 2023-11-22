@@ -71,12 +71,12 @@ nav > div:last-child > span {
     position: absolute;
     font-size: 0.8rem;
     font-weight: 400;
-    width: 210px;
+    width: 220px;
     height: auto;
     right: 0;
     bottom: 40px;
     border-radius: 20px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 nav img, nav span {
