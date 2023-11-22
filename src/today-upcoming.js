@@ -292,9 +292,46 @@ function generateTask (sectionClass, dialogClass) {
         })
     })();
 
-    if (chooseColorActive !== true) {
-        setColor();
-    }
+    const setDefaultColorIfNoneIsChosen = (function () {
+        if (chooseColorActive !== true) {
+            setColor();
+        }
+    })();
+
+    const setDialogNumber = (function () {
+        const todayDialogNumber = document.querySelector('.today-dialog  legend');
+        const upcomingDialogNumber = document.querySelector('.upcoming-dialog legend');
+
+        switch (todayTasksCount) {
+            case 1:
+                todayDialogNumber.textContent = 'Second Task';
+                break;
+            case 2:
+                todayDialogNumber.textContent = 'Third Task';
+                break;
+            case 3:
+                todayDialogNumber.textContent = 'Fourth Task';
+                break;
+            case 4:
+                todayDialogNumber.textContent = 'Final Task';
+                break;
+        }
+
+        switch (upcomingTasksCount) {
+            case 1:
+                upcomingDialogNumber.textContent = 'Second Task';
+                break;
+            case 2:
+                upcomingDialogNumber.textContent = 'Third Task';
+                break;
+            case 3:
+                upcomingDialogNumber.textContent = 'Fourth Task';
+                break;
+            case 4:
+                upcomingDialogNumber.textContent = 'Last Task';
+                break;
+        }
+    })();
 }
 
 export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, consolidatedArray, categories};
