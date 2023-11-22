@@ -94,7 +94,8 @@ const launchConsolidated = (function () {
             todayUpcomingFunctions.displayHeader('Consolidated Tasks');
             consolidatedSection.innerHTML = `${todayUpcomingFunctions.consolidatedArray[0]} ${todayUpcomingFunctions.consolidatedArray[1]}`;
 
-            displayDescription('.consolidated-module');
+            displayDescriptionInCategorySections('.consolidated-module');
+            removeDeleteSpansInCategorySections('.consolidated-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -114,7 +115,8 @@ const launchPersonal = (function () {
             todayUpcomingFunctions.displayHeader('Personal');
             personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
 
-            displayDescription('.personal-module');
+            displayDescriptionInCategorySections('.personal-module');
+            removeDeleteSpansInCategorySections('.personal-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -135,7 +137,8 @@ const launchWork = (function () {
             todayUpcomingFunctions.displayHeader('Work');
             workSection.innerHTML = todayUpcomingFunctions.categories.work;
 
-            displayDescription('.work-module');
+            displayDescriptionInCategorySections('.work-module');
+            removeDeleteSpansInCategorySections('.work-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -157,7 +160,8 @@ const launchFamily = (function () {
             todayUpcomingFunctions.displayHeader('Family');
             familySection.innerHTML = todayUpcomingFunctions.categories.family;
 
-            displayDescription('.family-module');
+            displayDescriptionInCategorySections('.family-module');
+            removeDeleteSpansInCategorySections('.family-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -178,7 +182,8 @@ const launchOther = (function () {
             todayUpcomingFunctions.displayHeader('Other');
             otherSection.innerHTML = todayUpcomingFunctions.categories.other;
 
-            displayDescription('.other-module');
+            displayDescriptionInCategorySections('.other-module');
+            removeDeleteSpansInCategorySections('.other-module');
             todayUpcomingFunctions.colorGeneratedTasks();
         })
     })
@@ -233,19 +238,27 @@ const generateInfo = (function () {
     })
 })();
 
-const displayDescription = function (sectionClass) {
+const displayDescriptionInCategorySections = function (sectionClass) {
     const descriptionBox = document.querySelector('main > div');
     const descriptionContent = document.querySelector('main > div > span');
     const categoryDescriptions = document.querySelectorAll(`${sectionClass} .description`);
 
-    categoryDescriptions.forEach((item) => {
-        item.addEventListener('mouseover', () => {
+    categoryDescriptions.forEach((element) => {
+        element.addEventListener('mouseover', () => {
             descriptionBox.style.display = 'flex';
             descriptionContent.textContent = item.dataset.value;
         })
-        item.addEventListener('mouseout', () => {
+        element.addEventListener('mouseout', () => {
             descriptionBox.style.display = 'none';
             descriptionContent.textContent = '';
         })
     })
 };
+
+const removeDeleteSpansInCategorySections = function (sectionClass) {
+    const categoryDeleteSpans = document.querySelectorAll(`${sectionClass} .deleteTask`);
+
+    categoryDeleteSpans.forEach((element) => {
+        element.style.display = 'none';
+    })
+}
