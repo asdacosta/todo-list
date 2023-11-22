@@ -223,6 +223,10 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.dueDate.textContent = dialogDueValue;
         }
 
+        const addDescriptionValueToDataAttributeForUseInCategorySections = (function () {
+            createTaskElements.description.setAttribute('data-value', `${dialogDescriptionValue}`);
+        })()
+
         return {dialogTaskValue, dialogSortValue, dialogDueValue, dialogDescriptionValue};
     })();
 
