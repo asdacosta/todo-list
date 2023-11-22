@@ -1,3 +1,5 @@
+import { setColor, chooseColorActive } from "./setting";
+
 const displayHeader = function (textContent) {
     const header = document.querySelector('h2');
 
@@ -220,12 +222,10 @@ function generateTask (sectionClass, dialogClass) {
         const descriptionBox = document.querySelector('main > div');
         const descriptionContent = document.querySelector('main > div > span');
 
-        // createTaskElements.description.setAttribute('data-description', `${setValues.dialogDescriptionValue}`);
         createTaskElements.description.style.cursor = 'pointer';
 
         createTaskElements.description.addEventListener('mouseover', () => {
             descriptionBox.style.display = 'flex';
-            // descriptionContent.textContent = createTaskElements.description.dataset.description;
             descriptionContent.textContent = setValues.dialogDescriptionValue;
         })
         createTaskElements.description.addEventListener('mouseout', () => {
@@ -291,6 +291,10 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.isFullSpan.textContent = '';
         })
     })();
+
+    if (chooseColorActive !== true) {
+        setColor();
+    }
 }
 
 export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, consolidatedArray, categories};
