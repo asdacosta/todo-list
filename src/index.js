@@ -12,7 +12,6 @@ const importAllImages = (function () {
 const launchTodayAtPageLoad = (function () {
     todayUpcomingFunctions.displayHeader('Today');
     todayUpcomingFunctions.createTodayAddTask();
-    setColor();
     settingsFunctions.setColor();
 })();
 
@@ -96,6 +95,7 @@ const launchConsolidated = (function () {
             consolidatedSection.innerHTML = `${todayUpcomingFunctions.consolidatedArray[0]} ${todayUpcomingFunctions.consolidatedArray[1]}`;
 
             todayUpcomingFunctions.colorGeneratedTasks();
+            displayDescription('.consolidated-module');
         })
     })
     return {consolidatedActive, consolidatedSection};
@@ -228,3 +228,20 @@ const generateInfo = (function () {
         infoContent.textContent = '';
     })
 })();
+
+const displayDescription = function (sectionClass) {
+    const descriptionBox = document.querySelector('main > div');
+    const descriptionContent = document.querySelector('main > div > span');
+    const categoryDescriptions = document.querySelectorAll(`${sectionClass} .description`);
+
+    categoryDescriptions.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            descriptionBox.style.display = 'flex';
+            descriptionContent.textContent = item.dataset.value;
+        })
+        item.addEventListener('mouseout', () => {
+            descriptionBox.style.display = 'none';
+            descriptionContent.textContent = '';
+        })
+    })
+};
