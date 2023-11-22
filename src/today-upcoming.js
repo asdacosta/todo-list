@@ -301,6 +301,7 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.isFullSpan.textContent = '';
 
             setDialogNumber.dialogNumberTemplate();
+            updateCategories();
         })
     })();
 
