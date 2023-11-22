@@ -251,7 +251,7 @@ input[type="checkbox"] {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     background: grey;
-    min-width: 6rem;
+    min-width: 8rem;
 }
 
 .description {
