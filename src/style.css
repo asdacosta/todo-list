@@ -94,9 +94,9 @@ main > div {
     gap: 10px;
     position: absolute;
     width: 250px;
-    height: auto;
+    height: 310px;
     right: 5rem;
-    top: 13rem;
+    top: 11rem;
     padding: 10px;
     border-radius: 30px;
     border: 5px solid white;
@@ -169,7 +169,6 @@ h2 {
 }
 
 dialog {
-    background-color: rebeccapurple;
     left: 40%;
     top: 30%;
     width: 500px;
