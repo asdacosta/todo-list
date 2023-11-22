@@ -138,6 +138,14 @@ const createUpcomingAddTask = function () {
         const addTaskDiv = document.querySelector('.upcoming-module .addTaskDiv');
         const moduleSection = document.querySelector('.upcoming-module');
 
+        const colorAddTask = (function () {
+            const emptySection = document.querySelector('nav > section:empty')
+            const computedStyle = window.getComputedStyle(emptySection);
+            let computedColor = computedStyle.backgroundColor;
+        
+            addTaskDiv.style.backgroundColor = `${computedColor}`;
+        })();
+
         return {addTaskDiv, moduleSection};
     })();
 
