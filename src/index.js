@@ -75,6 +75,7 @@ const launchUpcoming = (function () {
             if (upcomingSection.textContent === '') {
                 todayUpcomingFunctions.createUpcomingAddTask();
             }
+            setColor();
         })
     })
 

@@ -71,10 +71,11 @@ nav > div:last-child > span {
     position: absolute;
     font-size: 0.8rem;
     font-weight: 400;
-    width: 200px;
+    width: 210px;
     height: auto;
     right: 0;
     bottom: 40px;
+    border-radius: 20px;
 }
 
 nav img, nav span {
@@ -83,7 +84,7 @@ nav img, nav span {
 
 main {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 5rem;
 }
 
@@ -257,6 +258,7 @@ input[type="checkbox"] {
     grid-row: 2 / 3;
     grid-column: 3 / 4;
     background: grey;
+    margin-left: 5px;
 }
 
 .deleteTask {
@@ -267,6 +269,6 @@ input[type="checkbox"] {
     background: rgb(253, 103, 103);
 }
 
-.info, .description, .dueDate {
+.info, .description, .dueDate, nav > div:first-child > * {
     cursor: context-menu;
 }

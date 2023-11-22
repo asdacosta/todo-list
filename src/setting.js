@@ -107,13 +107,15 @@ const setColor = function () {
                 computedColor = computedStyle.backgroundColor;
                 setInterval(() => {
                     elementsToChange(computedColor);
-                }, 100);
+                }, 10);
             })
         })
     })();
 
     const setDefaultColor = (function () {
-        elementsToChange(generateColors.blue);
+        if (chooseColorActive !== true) {
+            elementsToChange(generateColors.blue);
+        }
     })();
 };
 
