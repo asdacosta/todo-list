@@ -221,6 +221,7 @@ button:hover {
 
 fieldset {
     padding: 10px;
+    border: 2px solid white;
 }
 
 legend {
@@ -264,4 +265,8 @@ input[type="checkbox"] {
     align-self: center;
     cursor: pointer;
     background: rgb(253, 103, 103);
+}
+
+.info, .description, .dueDate {
+    cursor: context-menu;
 }
