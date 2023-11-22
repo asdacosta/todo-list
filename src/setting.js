@@ -112,11 +112,11 @@ const setColor = function () {
         })
     })();
 
-    // const setDefaultColor = (function () {
-    //     if (chooseColorActive === false) {
-    //         elementsToChange(generateColors.blue);
-    //     }
-    // })();
+    const setDefaultColor = (function () {
+        if (chooseColorActive === false) {
+            elementsToChange(generateColors.blue);
+        }
+    })();
 };
 
 export {paintColorCircle, setColor, generateColors, chooseColorActive};
