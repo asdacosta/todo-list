@@ -1,5 +1,5 @@
 import './style.css';
-import {paintColorCircle, generateColors} from './setting.js';
+import {paintColorCircle, setColor, generateColors} from './setting.js';
 import * as todayUpcomingFunctions from './today-upcoming.js';
 
 const importAllImages = (function () {
@@ -12,6 +12,7 @@ const importAllImages = (function () {
 const launchTodayAtPageLoad = (function () {
     todayUpcomingFunctions.displayHeader('Today');
     todayUpcomingFunctions.createTodayAddTask();
+    setColor();
 })();
 
 const toggleModule = function (moduleSection, isActive) {
@@ -195,6 +196,7 @@ const launchSettings = (function () {
         settingsSection.appendChild(colorChangeText);
         settingsSection.appendChild(colorContainer);
         paintColorCircle();
+        setColor();
     })
 
     return {settingsActive, settingsSection};
