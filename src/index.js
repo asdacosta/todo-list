@@ -207,7 +207,7 @@ const generateInfo = (function () {
     const infoContent = document.querySelector('nav > div:last-child > span');
 
     infoIcon.addEventListener('mouseover', () => {
-        infoContent.innerHTML = "Add your tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories."
+        infoContent.innerHTML = "Add your tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks per section."
     })
     infoIcon.addEventListener('mouseout', () => {
         infoContent.textContent = '';
