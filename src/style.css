@@ -76,6 +76,7 @@ nav > div:last-child > span {
     right: 0;
     bottom: 40px;
     border-radius: 20px;
+    text-align: justify;
 }
 
 nav img, nav span {
@@ -174,7 +175,7 @@ dialog {
     top: 30%;
     width: 500px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
 }
 
@@ -269,6 +270,6 @@ input[type="checkbox"] {
     background: rgb(253, 103, 103);
 }
 
-.info, .description, .dueDate, nav > div:first-child > * {
+h2, .info, .description, .dueDate, nav > div:first-child > * {
     cursor: context-menu;
 }

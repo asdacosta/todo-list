@@ -1,5 +1,3 @@
-import * as todayUpcomingFunctions from './today-upcoming.js';
-
 const generateColors = (function () {
     const red = 'rgba(253, 111, 85, 0.7)';
     const yellow = 'rgba(252, 252, 106, 0.7)';
@@ -105,9 +103,7 @@ const setColor = function () {
                 circle.style.border = '2px solid white';
                 const computedStyle = window.getComputedStyle(circle);
                 computedColor = computedStyle.backgroundColor;
-                // setInterval(() => {
-                    elementsToChange(computedColor);
-                // }, 100);
+                elementsToChange(computedColor);
             })
         })
     })();
@@ -119,4 +115,4 @@ const setColor = function () {
     })();
 };
 
-export {paintColorCircle, setColor, generateColors, chooseColorActive};
+export { paintColorCircle, setColor };

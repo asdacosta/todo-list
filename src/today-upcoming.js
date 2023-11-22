@@ -1,5 +1,3 @@
-import { setColor, chooseColorActive } from "./setting";
-
 const displayHeader = function (textContent) {
     const header = document.querySelector('h2');
 
@@ -300,12 +298,6 @@ function generateTask (sectionClass, dialogClass) {
 
             setDialogNumber.dialogNumberTemplate();
         })
-    })();
-
-    const setDefaultColorIfNoneIsChosen = (function () {
-        if (chooseColorActive !== true) {
-            // setColor();
-        }
     })();
 
     const setDialogNumber = (function () {
