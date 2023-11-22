@@ -42,9 +42,10 @@ let chooseColorActive = false;
 const setColor = function () {
     const elementsToChange = function (color) {
         const hoveringEffect = (function () {
-            const hoveringElements = document.querySelectorAll('.addTasksSection > div, .sortSection > div');
+            const hoveringDivs = document.querySelectorAll('.addTasksSection > div, .sortSection > div');
+            const hoveringSettings = document.querySelector('.settings');
 
-            hoveringElements.forEach((div, index) => {
+            hoveringDivs.forEach((div, index) => {
                 div.classList.add(`div${index}`);
                 const hoveringImg = document.querySelector(`.div${index} img`);
                 const hoveringSpan = document.querySelector(`.div${index} span`);
@@ -64,6 +65,13 @@ const setColor = function () {
                     hoveringImg.style.background = 'rgba(255, 255, 255, 0.7)';
                     hoveringSpan.style.color = 'white';
                 })
+            })
+
+            hoveringSettings.addEventListener('mouseover', () => {
+                hoveringSettings.style.background = color;
+            })
+            hoveringSettings.addEventListener('mouseout', () => {
+                hoveringSettings.style.background = 'rgba(255, 255, 255, 0.7)';
             })
         })();
 
