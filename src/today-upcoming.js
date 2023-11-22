@@ -117,7 +117,7 @@ const createTodayAddTask = function () {
                     todayTasksCount += 1;
                 } else {
                     todayDialog.close();
-                    isFullSpan.textContent = "📋 Avoid task overload or procrastination. Limit tasks to 5 daily; finish one to add a new task.";
+                    isFullSpan.textContent = "📋 Avoid task overload or procrastination. Limit tasks to 5 daily; finish one and delete it to add a new task.";
                 }
             })
             todayButton.addEventListener('click', (event) => {
@@ -289,6 +289,8 @@ function generateTask (sectionClass, dialogClass) {
                 updateConsolidatedWithOnlyTaskDivs('.upcoming-module');
             }
             createTaskElements.isFullSpan.textContent = '';
+
+            setDialogNumber.dialogNumberTemplate();
         })
     })();
 
@@ -299,38 +301,43 @@ function generateTask (sectionClass, dialogClass) {
     })();
 
     const setDialogNumber = (function () {
-        const todayDialogNumber = document.querySelector('.today-dialog  legend');
-        const upcomingDialogNumber = document.querySelector('.upcoming-dialog legend');
+        function dialogNumberTemplate () {
+            const todayDialogNumber = document.querySelector('.today-dialog  legend');
+            const upcomingDialogNumber = document.querySelector('.upcoming-dialog legend');
 
-        switch (todayTasksCount) {
-            case 1:
-                todayDialogNumber.textContent = 'Second Task';
-                break;
-            case 2:
-                todayDialogNumber.textContent = 'Third Task';
-                break;
-            case 3:
-                todayDialogNumber.textContent = 'Fourth Task';
-                break;
-            case 4:
-                todayDialogNumber.textContent = 'Final Task';
-                break;
-        }
+            switch (todayTasksCount) {
+                case 1:
+                    todayDialogNumber.textContent = 'Second Task';
+                    break;
+                case 2:
+                    todayDialogNumber.textContent = 'Third Task';
+                    break;
+                case 3:
+                    todayDialogNumber.textContent = 'Fourth Task';
+                    break;
+                case 4:
+                    todayDialogNumber.textContent = 'Final Task';
+                    break;
+            }
 
-        switch (upcomingTasksCount) {
-            case 1:
-                upcomingDialogNumber.textContent = 'Second Task';
-                break;
-            case 2:
-                upcomingDialogNumber.textContent = 'Third Task';
-                break;
-            case 3:
-                upcomingDialogNumber.textContent = 'Fourth Task';
-                break;
-            case 4:
-                upcomingDialogNumber.textContent = 'Last Task';
-                break;
+            switch (upcomingTasksCount) {
+                case 1:
+                    upcomingDialogNumber.textContent = 'Second Task';
+                    break;
+                case 2:
+                    upcomingDialogNumber.textContent = 'Third Task';
+                    break;
+                case 3:
+                    upcomingDialogNumber.textContent = 'Fourth Task';
+                    break;
+                case 4:
+                    upcomingDialogNumber.textContent = 'Last Task';
+                    break;
+            }
         }
+        dialogNumberTemplate();
+        
+        return {dialogNumberTemplate};
     })();
 }
 
