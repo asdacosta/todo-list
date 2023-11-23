@@ -55,6 +55,28 @@ export default function createLocalStorage () {
         })();
     }
 
+    function takeDivs () {
+        const todaySection = document.querySelector('.today-module');
+        const upcomingSection = document.querySelector('.upcoming-module');
+
+        const sectionsObject = {
+            todayDivs: todaySection.innerHTML,
+            upcomingDivs: upcomingSection.innerHTML
+        }
+
+        localStorage.setItem('sections', JSON.stringify(sectionsObject));
+    }
+
+    function setDivs (object) {
+        const todaySection = document.querySelector('.today-module');
+        const upcomingSection = document.querySelector('.upcoming-module');
+        
+        todaySection.innerHTML = object.todayDivs;
+        upcomingSection.innerHTML = object.upcomingDivs;
+
+        upcomingSection.style.display = 'none';
+    }
+
     // function populateStorage () {
     //     takeColor();
     // }
@@ -64,11 +86,18 @@ export default function createLocalStorage () {
         if (savedColor) {
             setColor(savedColor);
         }
+
+        const savedObject = JSON.parse(localStorage.getItem('sections'));
+        if (savedObject) {
+            console.log('1');
+            setDivs(savedObject);
+        }
     })();
 
     const dynamic = (function () {
         setInterval(() => {
+            takeDivs();
             takeColor();
-        }, 1000);
+        }, 500);
     })();
 }
