@@ -65,4 +65,10 @@ export default function createLocalStorage () {
             setColor(savedColor);
         }
     })();
+
+    const dynamic = (function () {
+        setInterval(() => {
+            takeColor();
+        }, 1000);
+    })();
 }
