@@ -110,6 +110,7 @@ const setColor = function () {
 
     const setDefaultColor = (function () {
         const savedColor = localStorage.getItem('color');
+        
         if (chooseColorActive === false && !savedColor) {
             elementsToChange(generateColors.blue);
         }
