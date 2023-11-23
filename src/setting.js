@@ -109,7 +109,8 @@ const setColor = function () {
     })();
 
     const setDefaultColor = (function () {
-        if (chooseColorActive === false) {
+        const savedColor = localStorage.getItem('color');
+        if (chooseColorActive === false && !savedColor) {
             elementsToChange(generateColors.blue);
         }
     })();
