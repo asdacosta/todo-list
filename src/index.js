@@ -1,6 +1,6 @@
 import './style.css';
 import * as settingsFunctions from './setting.js';
-import * as todayUpcomingFunctions from './sections.js';
+import * as sectionFunctions from './sectionsLogic.js';
 import storeHouse from './storage.js';
 
 const importAllImages = (function () {
@@ -11,8 +11,8 @@ const importAllImages = (function () {
 })();
 
 const launchTodayAtPageLoad = (function () {
-    todayUpcomingFunctions.displayHeader('Today');
-    todayUpcomingFunctions.createTodayAddTask();
+    sectionFunctions.displayHeader('Today');
+    sectionFunctions.createTodayAddTask();
     settingsFunctions.setColor();
 })();
 
@@ -52,9 +52,9 @@ const launchToday = (function () {
             toggleModule(launchToday.todaySection, launchToday.todayActive);
 
             isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Today');
+            sectionFunctions.displayHeader('Today');
             if (todaySection.textContent === '') {
-                todayUpcomingFunctions.createTodayAddTask();
+                sectionFunctions.createTodayAddTask();
             }
         })
     })
@@ -72,9 +72,9 @@ const launchUpcoming = (function () {
             toggleModule(launchUpcoming.upcomingSection, launchUpcoming.upcomingActive);
 
             launchToday.isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Upcoming');
+            sectionFunctions.displayHeader('Upcoming');
             if (upcomingSection.textContent === '') {
-                todayUpcomingFunctions.createUpcomingAddTask();
+                sectionFunctions.createUpcomingAddTask();
             }
         })
     })
@@ -92,12 +92,12 @@ const launchConsolidated = (function () {
             toggleModule(launchConsolidated.consolidatedSection, launchConsolidated.consolidatedActive);
 
             launchToday.isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Consolidated Tasks');
-            consolidatedSection.innerHTML = `${todayUpcomingFunctions.consolidatedArray[0]} ${todayUpcomingFunctions.consolidatedArray[1]}`;
+            sectionFunctions.displayHeader('Consolidated Tasks');
+            consolidatedSection.innerHTML = `${sectionFunctions.consolidatedArray[0]} ${sectionFunctions.consolidatedArray[1]}`;
 
             displayDescriptionInCategorySections('.consolidated-module');
             removeDeleteSpansInCategorySections('.consolidated-module');
-            todayUpcomingFunctions.colorGeneratedTasks();
+            sectionFunctions.colorGeneratedTasks();
         })
     })
     return {consolidatedActive, consolidatedSection};
@@ -113,12 +113,12 @@ const launchPersonal = (function () {
             toggleModule(launchPersonal.personalSection, launchPersonal.personalActive);
 
             launchToday.isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Personal');
-            personalSection.innerHTML = todayUpcomingFunctions.categories.personal;
+            sectionFunctions.displayHeader('Personal');
+            personalSection.innerHTML = sectionFunctions.categories.personal;
 
             displayDescriptionInCategorySections('.personal-module');
             removeDeleteSpansInCategorySections('.personal-module');
-            todayUpcomingFunctions.colorGeneratedTasks();
+            sectionFunctions.colorGeneratedTasks();
         })
     })
 
@@ -135,12 +135,12 @@ const launchWork = (function () {
             toggleModule(launchWork.workSection, launchWork.workActive);
 
             launchToday.isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Work');
-            workSection.innerHTML = todayUpcomingFunctions.categories.work;
+            sectionFunctions.displayHeader('Work');
+            workSection.innerHTML = sectionFunctions.categories.work;
 
             displayDescriptionInCategorySections('.work-module');
             removeDeleteSpansInCategorySections('.work-module');
-            todayUpcomingFunctions.colorGeneratedTasks();
+            sectionFunctions.colorGeneratedTasks();
         })
     })
 
@@ -158,12 +158,12 @@ const launchFamily = (function () {
             toggleModule(launchFamily.familySection, launchFamily.familyActive);
 
             launchToday.isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Family');
-            familySection.innerHTML = todayUpcomingFunctions.categories.family;
+            sectionFunctions.displayHeader('Family');
+            familySection.innerHTML = sectionFunctions.categories.family;
 
             displayDescriptionInCategorySections('.family-module');
             removeDeleteSpansInCategorySections('.family-module');
-            todayUpcomingFunctions.colorGeneratedTasks();
+            sectionFunctions.colorGeneratedTasks();
         })
     })
 
@@ -180,12 +180,12 @@ const launchOther = (function () {
             toggleModule(launchOther.otherSection, launchOther.otherActive);
 
             launchToday.isFullSpan.innerHTML = '';
-            todayUpcomingFunctions.displayHeader('Other');
-            otherSection.innerHTML = todayUpcomingFunctions.categories.other;
+            sectionFunctions.displayHeader('Other');
+            otherSection.innerHTML = sectionFunctions.categories.other;
 
             displayDescriptionInCategorySections('.other-module');
             removeDeleteSpansInCategorySections('.other-module');
-            todayUpcomingFunctions.colorGeneratedTasks();
+            sectionFunctions.colorGeneratedTasks();
         })
     })
 
@@ -212,7 +212,7 @@ const launchSettings = (function () {
         toggleModule(launchSettings.settingsSection, launchSettings.settingsActive);
         
         launchToday.isFullSpan.innerHTML = '';
-        todayUpcomingFunctions.displayHeader('Settings');
+        sectionFunctions.displayHeader('Settings');
 
         settingsSection.appendChild(colorChangeText);
         settingsSection.appendChild(colorContainer);
