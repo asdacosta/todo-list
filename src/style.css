@@ -3,8 +3,9 @@
     margin: 0;
     box-sizing: border-box;
     letter-spacing: 1.2px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: white;
+    font-family: 'Raleway', sans-serif;
 }
 
 img {
@@ -271,4 +272,8 @@ input[type="checkbox"] {
 
 h2, .info, .description, .dueDate, nav > div:first-child > * {
     cursor: context-menu;
+}
+
+strong {
+    color: red;
 }
