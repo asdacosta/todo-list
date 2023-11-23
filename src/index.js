@@ -1,6 +1,7 @@
 import './style.css';
 import * as settingsFunctions from './setting.js';
 import * as todayUpcomingFunctions from './today-upcoming.js';
+import storeHouse from './today';
 
 const importAllImages = (function () {
     function importAll(r) {
@@ -262,3 +263,7 @@ const removeDeleteSpansInCategorySections = function (sectionClass) {
         element.style.display = 'none';
     })
 }
+
+const storeAndRetrieveLocalStorage = (function () {
+    storeHouse();
+})();
