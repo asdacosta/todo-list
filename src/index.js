@@ -97,6 +97,7 @@ const launchConsolidated = (function () {
 
             displayDescriptionInCategorySections('.consolidated-module');
             removeDeleteSpansInCategorySections('.consolidated-module');
+            sectionFunctions.displayEmptyForCategorySections('.consolidated-module');
             sectionFunctions.colorGeneratedTasks();
         })
     })
@@ -118,6 +119,7 @@ const launchPersonal = (function () {
 
             displayDescriptionInCategorySections('.personal-module');
             removeDeleteSpansInCategorySections('.personal-module');
+            sectionFunctions.displayEmptyForCategorySections('.personal-module');
             sectionFunctions.colorGeneratedTasks();
         })
     })
@@ -140,6 +142,7 @@ const launchWork = (function () {
 
             displayDescriptionInCategorySections('.work-module');
             removeDeleteSpansInCategorySections('.work-module');
+            sectionFunctions.displayEmptyForCategorySections('.work-module');
             sectionFunctions.colorGeneratedTasks();
         })
     })
@@ -163,6 +166,7 @@ const launchFamily = (function () {
 
             displayDescriptionInCategorySections('.family-module');
             removeDeleteSpansInCategorySections('.family-module');
+            sectionFunctions.displayEmptyForCategorySections('.family-module');
             sectionFunctions.colorGeneratedTasks();
         })
     })
@@ -185,6 +189,7 @@ const launchOther = (function () {
 
             displayDescriptionInCategorySections('.other-module');
             removeDeleteSpansInCategorySections('.other-module');
+            sectionFunctions.displayEmptyForCategorySections('.other-module');
             sectionFunctions.colorGeneratedTasks();
         })
     })
