@@ -55,30 +55,26 @@ export default function createLocalStorage () {
         })();
     }
 
-    function takeDivs () {
-        const todaySection = document.querySelector('.today-module');
-        const upcomingSection = document.querySelector('.upcoming-module');
+    // function takeDivs () {
+    //     const todaySection = document.querySelector('.today-module');
+    //     const upcomingSection = document.querySelector('.upcoming-module');
 
-        const sectionsObject = {
-            todayDivs: todaySection.innerHTML,
-            upcomingDivs: upcomingSection.innerHTML
-        }
+    //     const sectionsObject = {
+    //         todayDivs: todaySection.innerHTML,
+    //         upcomingDivs: upcomingSection.innerHTML
+    //     }
 
-        localStorage.setItem('sections', JSON.stringify(sectionsObject));
-    }
+    //     localStorage.setItem('sections', JSON.stringify(sectionsObject));
+    // }
 
-    function setDivs (object) {
-        const todaySection = document.querySelector('.today-module');
-        const upcomingSection = document.querySelector('.upcoming-module');
+    // function setDivs (object) {
+    //     const todaySection = document.querySelector('.today-module');
+    //     const upcomingSection = document.querySelector('.upcoming-module');
         
-        todaySection.innerHTML = object.todayDivs;
-        upcomingSection.innerHTML = object.upcomingDivs;
+        // todaySection.innerHTML = object.todayDivs;
+        // upcomingSection.innerHTML = object.upcomingDivs;
 
-        upcomingSection.style.display = 'none';
-    }
-
-    // function populateStorage () {
-    //     takeColor();
+    //     upcomingSection.style.display = 'none';
     // }
 
     const populateOrSet = (function () {
@@ -87,16 +83,16 @@ export default function createLocalStorage () {
             setColor(savedColor);
         }
 
-        const savedObject = JSON.parse(localStorage.getItem('sections'));
-        if (savedObject) {
-            console.log('1');
-            setDivs(savedObject);
-        }
+        // const savedObject = JSON.parse(localStorage.getItem('sections'));
+        // if (savedObject) {
+        //     console.log('1');
+        //     setDivs(savedObject);
+        // }
     })();
 
     const dynamic = (function () {
         setInterval(() => {
-            takeDivs();
+            // takeDivs();
             takeColor();
         }, 500);
     })();
