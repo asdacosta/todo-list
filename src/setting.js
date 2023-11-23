@@ -74,7 +74,7 @@ const setColor = function () {
         })();
 
         const constantEffect = (function () {
-            const backgroundconstantChangeElements = document.querySelectorAll('nav > section:empty, nav > div:last-child > span, .addTaskDiv, dialog');
+            const backgroundconstantChangeElements = document.querySelectorAll('nav > section:empty, nav > div:last-child > span, .addTaskDiv, dialog, header');
             const descriptionBox = document.querySelector('main > div');
             const taskDivs = document.querySelectorAll('.taskDiv');
 
@@ -110,7 +110,7 @@ const setColor = function () {
 
     const setDefaultColor = (function () {
         const savedColor = localStorage.getItem('color');
-        
+
         if (chooseColorActive === false && !savedColor) {
             elementsToChange(generateColors.blue);
         }
