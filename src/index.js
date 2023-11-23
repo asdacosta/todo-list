@@ -1,7 +1,7 @@
 import './style.css';
 import * as settingsFunctions from './setting.js';
-import * as todayUpcomingFunctions from './today-upcoming.js';
-import storeHouse from './today';
+import * as todayUpcomingFunctions from './sections.js';
+import storeHouse from './storage.js';
 
 const importAllImages = (function () {
     function importAll(r) {
