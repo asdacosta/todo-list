@@ -247,7 +247,7 @@ const displayDescriptionInCategorySections = function (sectionClass) {
     categoryDescriptions.forEach((element) => {
         element.addEventListener('mouseover', () => {
             descriptionBox.style.display = 'flex';
-            descriptionContent.textContent = item.dataset.value;
+            descriptionContent.textContent = element.dataset.value;
         })
         element.addEventListener('mouseout', () => {
             descriptionBox.style.display = 'none';
