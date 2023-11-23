@@ -363,4 +363,12 @@ const colorGeneratedTasks = function () {
     })
 };
 
-export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, colorGeneratedTasks, consolidatedArray, categories};
+const displayEmptyForCategorySections = function (sectionClass) {
+    const categorySection = document.querySelector(`${sectionClass}`);
+
+    if (categorySection.textContent === ' ' || categorySection.textContent === '') {
+        categorySection.textContent = 'No tasks';
+    }
+};
+
+export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, colorGeneratedTasks, displayEmptyForCategorySections, consolidatedArray, categories};
