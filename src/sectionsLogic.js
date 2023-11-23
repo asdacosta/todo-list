@@ -18,6 +18,9 @@ const displayHeader = function (textContent) {
             header.textContent = 'Work';
             break;
         case 'Family':
+            header.textContent = 'Family';
+            break;
+        case 'Other':
             header.textContent = 'Other';
             break;
         case 'Settings':
