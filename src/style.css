@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     letter-spacing: 1.2px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: white;
     font-family: 'Raleway', sans-serif;
 }
@@ -196,13 +196,13 @@ h2 {
     border-radius: 20px;
     height: 50px;
     padding: 0 10px;
-    width: 80%;
+    width: 70%;
 }
 
 dialog {
     left: 40%;
     top: 30%;
-    width: 500px;
+    width: 450px;
     border: none;
     border-radius: 20px;
     padding: 10px;
