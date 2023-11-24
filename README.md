@@ -1,5 +1,7 @@
 # Todo List
 
+![Live Demo](./todo-demo.gif)
+
 ## Project Origin
 The Odin Project
 
@@ -15,6 +17,7 @@ Developers, users, recruiters.
 ## Technologies
 * `XUbuntu` in Terminal
 * `VS` Code
+* `Webpack`
 
 ## Files
 | File | Description |
