@@ -35,7 +35,12 @@ Developers, users, recruiters.
 
 [Todo Website](https://asdacosta.github.io/todo-list/)
 
-
-
-
-
+## Imporvements
+* Add date icon to be able to select date from calender.
+* Add local storage for todos; continue in commented code in `src/storage.js`.
+* Add edit icon to tasks. (Dialog should popup with contents and <legend> Edit Task</legend> instead of task number)
+* Make dialog have an exit 'X' at top to be able to cancel task. (You might need to replace dialog with <div>)
+* When user returns to page, indicate previously selected color from local storage with border in settings. 
+* Checked task should reflect in all categories it's in and it should be at the bottom. (Might need to replace checkbox input with <div> or another element and style as a check box).
+* Add priority rank in form and indicate it on the task with a small box.
+* Make website responsive in all screen sizes.
