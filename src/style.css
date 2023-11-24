@@ -269,6 +269,9 @@ input[type="checkbox"] {
 .textInput {
     grid-row: 1 / 2;
     grid-column: 2 / span 3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .dueDate, .description, .deleteTask {
