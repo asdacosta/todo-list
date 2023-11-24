@@ -27,6 +27,13 @@ Developers, users, recruiters.
 |`webpack.config.js`| Configuration file for webpack. It enables the bundling of different assets.|
 |`package*`| Contains details of project and dependencies versions.|
 
+## Credit
+| File | Description |
+| - | - |
+|`src/imgs/checklist.png`| Icon created by Graphics Plazza on [Flaticon](https://www.flaticon.com/free-icons/).|
+|`src/imgs/*.svg`| Icons from [Material Design Icons](https://pictogrammers.com/library/mdi/).|
+
+
 
 
 
