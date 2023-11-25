@@ -147,7 +147,7 @@ const createUpcomingAddTask = function () {
             addTaskDiv.style.backgroundColor = `${computedColor}`;
         })();
 
-        return {addTaskDiv, moduleSection};
+        return { addTaskDiv, moduleSection };
     })();
 
     const addNewTask = (function () {
@@ -205,7 +205,7 @@ function generateTask (sectionClass, dialogClass) {
             taskSection.appendChild(taskDiv);
         })();
 
-        return {textInput, dueDate, description, deleteTask, taskSection, taskDiv, isFullSpan};
+        return { textInput, dueDate, description, deleteTask, taskSection, taskDiv, isFullSpan };
     })();
 
     colorGeneratedTasks();
@@ -236,7 +236,7 @@ function generateTask (sectionClass, dialogClass) {
             createTaskElements.description.setAttribute('data-value', `${dialogDescriptionValue}`);
         })()
 
-        return {dialogTaskValue, dialogSortValue, dialogDueValue, dialogDescriptionValue};
+        return { dialogTaskValue, dialogSortValue, dialogDueValue, dialogDescriptionValue };
     })();
 
     const displayDescription = (function () {
@@ -351,7 +351,7 @@ function generateTask (sectionClass, dialogClass) {
         }
         dialogNumberTemplate();
         
-        return {dialogNumberTemplate};
+        return { dialogNumberTemplate };
     })();
 }
 
@@ -374,4 +374,4 @@ const displayEmptyForCategorySections = function (sectionClass) {
     }
 };
 
-export {displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, colorGeneratedTasks, displayEmptyForCategorySections, consolidatedArray, categories};
+export { displayHeader, createTodayAddTask, createUpcomingAddTask, generateTask, colorGeneratedTasks, displayEmptyForCategorySections, consolidatedArray, categories };
