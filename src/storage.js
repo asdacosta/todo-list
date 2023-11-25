@@ -55,7 +55,7 @@ export default function createLocalStorage () {
         })();
     }
 
-    // This successfully stores tasks but removes functionality
+    // FIXME: This successfully stores tasks but removes functionality
     
     // function takeDivs () {
     //     const todaySection = document.querySelector('.today-module');
