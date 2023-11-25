@@ -7,6 +7,7 @@ const importAllImages = (function () {
     function importAll(r) {
         return r.keys().map(r);
     }
+
     const imgs = importAll(require.context('./imgs', false, /\.(png|jpe?g|svg)$/));
 })();
 
@@ -59,7 +60,7 @@ const launchToday = (function () {
         })
     })
 
-    return {todayActive, todaySection, isFullSpan};
+    return { todayActive, todaySection, isFullSpan };
 })();
 
 const launchUpcoming = (function () {
@@ -79,7 +80,7 @@ const launchUpcoming = (function () {
         })
     })
 
-    return {upcomingActive, upcomingSection};
+    return { upcomingActive, upcomingSection };
 })();
 
 const launchConsolidated = (function () {
@@ -101,7 +102,7 @@ const launchConsolidated = (function () {
             sectionFunctions.colorGeneratedTasks();
         })
     })
-    return {consolidatedActive, consolidatedSection};
+    return { consolidatedActive, consolidatedSection };
 })();
 
 const launchPersonal = (function () {
@@ -124,7 +125,7 @@ const launchPersonal = (function () {
         })
     })
 
-    return {personalActive, personalSection};
+    return { personalActive, personalSection };
 })();
 
 const launchWork = (function () {
@@ -147,8 +148,7 @@ const launchWork = (function () {
         })
     })
 
-    return {workActive, workSection};
-
+    return { workActive, workSection };
 })();
 
 const launchFamily = (function () {
@@ -171,7 +171,7 @@ const launchFamily = (function () {
         })
     })
 
-    return {familyActive, familySection};
+    return { familyActive, familySection} ;
 })();
 
 const launchOther = (function () {
@@ -194,7 +194,7 @@ const launchOther = (function () {
         })
     })
 
-    return {otherActive, otherSection};
+    return { otherActive, otherSection };
 })();
 
 const launchSettings = (function () {
@@ -225,7 +225,7 @@ const launchSettings = (function () {
         settingsFunctions.setColor();
     })
 
-    return {settingsActive, settingsSection};
+    return { settingsActive, settingsSection };
 })();
 
 const generateInfo = (function () {
