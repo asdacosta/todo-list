@@ -5,7 +5,7 @@
 ![Live Demo](./todo-demo.gif)
 
 ## Project Origin
-The Odin Project
+[The Odin Project](https://www.theodinproject.com/)
 
 ## Project Objective
 Aims to build a todo list, and it stresses on the use of JavaScript
