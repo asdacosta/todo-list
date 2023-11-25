@@ -6,7 +6,7 @@ const generateColors = (function () {
     const grey = 'rgba(158, 158, 158, 0.7)';
     const wood = 'rgba(223, 179, 123, 0.7)';
 
-    return {red, yellow, blue, violet, grey, wood};
+    return { red, yellow, blue, violet, grey, wood };
 })();
 
 const paintColorCircle = function () {
