@@ -1,7 +1,7 @@
 import './style.css';
-import * as settingsFunctions from './setting.js';
-import * as sectionFunctions from './sectionsLogic.js';
-import storeHouse from './storage.js';
+import * as settingsFunctions from './setting';
+import * as sectionFunctions from './sectionsLogic';
+import storeHouse from './storage';
 
 const importAllImages = (function () {
     function importAll(r) {
