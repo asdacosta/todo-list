@@ -18,7 +18,8 @@ Developers, users, recruiters.
 
 ## Technologies
 * `XUbuntu` in Terminal
-* `VS` Code
+* `VS Code`
+* `Git`
 * `Webpack`
 
 ## Files
