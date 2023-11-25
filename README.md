@@ -48,3 +48,6 @@ Developers, users, recruiters.
 * Add priority rank in form and indicate it on the task with a small box.
 * Make website responsive in all screen sizes.
 * Add a choice in settings to pick a random color for user.
+
+## Contributors & Curator
+1. [Abraham Da Costa Silvanus](https://github.com/asdacosta)
