@@ -1,9 +1,12 @@
 <div align='center'>
-    <h1>Todo-List Web App
-    </h1>
-        <img src="https://img.shields.io/static/v1?label=&message=HTML&color=E34F26&style=for-the-badge&logo=HTML5&logoColor=white&logoWidth=&labelColor=&link=" style='height: 35; border: 2px solid white; border-radius: 10px;'>
-		<img src="https://img.shields.io/static/v1?label=&message=CSS&color=1572B6&style=for-the-badge&logo=CSS3&logoColor=white&logoWidth=&labelColor=&link=" style='height: 35; border: 2px solid white; border-radius: 10px;'>
-		<img src="https://img.shields.io/static/v1?label=&message=Javascript&color=F7DF1E&style=for-the-badge&logo=Javascript&logoColor=black&logoWidth=&labelColor=&link=" style='height: 35; border: 2px solid black; border-radius: 10px;'>
+    <h1>Todo-List Web App</h1>
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+    <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+    <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black">
 </div>
 
 
