@@ -48,7 +48,7 @@ Builds a todo list web application.
 ## 🎯 Relevance
 To solidify concepts of `Object Oriented Programming (OOP) Principles`, particularly `SOLID Principles` in JavaScript. 
 
-## Intended Audience
+## 👥 Intended Audience
 Developers, users, recruiters.
 
 ## 📂 Files
@@ -93,7 +93,9 @@ Developers, users, recruiters.
 
 </details>
 
-## Contributor & Curator
-1. [Abraham Da Costa Silvanus](https://github.com/asdacosta) :technologist:
+## 👤 Contributor & Curator
+1. [Abraham Da Costa Silvanus](https://github.com/asdacosta) 
+
+<br>
 
 **[🞁 Top](#origin)**
