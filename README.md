@@ -1,10 +1,4 @@
-<div align='center' class="image-container">
-<style>
-.image-container:hover img {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-}
-</style>
+<div align='center'>
     <h1>Todo-List Web App
     </h1>
         <img src="https://img.shields.io/static/v1?label=&message=HTML&color=E34F26&style=for-the-badge&logo=HTML5&logoColor=white&logoWidth=&labelColor=&link=" style="height: 35; border: 2px solid white; border-radius: 10px;">
