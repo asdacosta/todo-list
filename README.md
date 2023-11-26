@@ -29,8 +29,7 @@ Builds a todo list web application.
 * Sort task in any category.
 * Check a task to indicate as done.
 * Maximum of 5 tasks per section.
-* Delete a task to add new one.
-* Different background colors to choose from in Settings.
+* Choose different background colors in Settings.
 
 </details>
 
