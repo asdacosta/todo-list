@@ -42,6 +42,7 @@ Developers, users, recruiters.
 ## Files
 <details>
 <summary>Invert</summary>
+
 | File | Description |
 | - | - |
 |`src/*`| Source files that are bundled into the output directory `dist/`.|
@@ -56,15 +57,18 @@ Developers, users, recruiters.
 ## Credit
 <details>
 <summary>Invert</summary>
+
 | File | Description |
 | - | - |
 |`src/imgs/checklist.png`| Icon created by Graphics Plazza on [Flaticon](https://www.flaticon.com/free-icons/).|
 |`src/imgs/*.svg`| Icons from [Material Design Icons](https://pictogrammers.com/library/mdi/).|
+
 </details>
 
 ## Improvements
 <details>
 <summary>Invert</summary>
+
 - [ ] Add date icon to be able to select date from calender.
 - [ ] Add local storage for todos; continue in commented code in `src/storage.js`.
 - [ ] Add edit icon to tasks. (Dialog should popup with contents and legend of Edit Task instead of task number)
@@ -74,6 +78,7 @@ Developers, users, recruiters.
 - [ ] Add priority rank in form and indicate it on the task with a small box.
 - [ ] Make website responsive in all screen sizes.
 - [ ] Add a choice in settings to pick a random color for user.
+
 </details>
 
 ## Contributors & Curator
