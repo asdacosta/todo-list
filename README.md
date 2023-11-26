@@ -10,10 +10,8 @@
     <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git badge">
     <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black" alt="Webpack badge">
     <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm badge">
+    <h4><a href="https://asdacosta.github.io/todo-list/">Live Preview</a></h4>
 </div>
-
-
-[Todo Website](https://asdacosta.github.io/todo-list/)
 
 ![Live Demo](./todo-demo.gif)
 
