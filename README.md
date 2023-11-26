@@ -13,6 +13,19 @@
     <h4><a href="https://asdacosta.github.io/todo-list/">Live Preview</a></h4>
 </div>
 
+**Demo:**
+
+![Live Demo](./todo-demo.gif)
+
+<details>
+
+**<summary>Screen views</summary>**
+
+**Desktop View:**
+<br>
+**Mobile View:**
+</details>
+
 ## 🌐 Origin
 [The Odin Project](https://www.theodinproject.com/)
 
