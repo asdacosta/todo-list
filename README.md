@@ -29,6 +29,9 @@ To solidify concepts of `Object Oriented Programming (OOP) Principles`, particul
 ## Intended Audience
 Developers, users, recruiters.
 
+> [!TIP]
+> Users will need to run Webpack, install dependencies and set the configurations as done in `webpack.config.js`.
+
 ## Files
 | File | Description |
 | - | - |
@@ -46,7 +49,10 @@ Developers, users, recruiters.
 |`src/imgs/checklist.png`| Icon created by Graphics Plazza on [Flaticon](https://www.flaticon.com/free-icons/).|
 |`src/imgs/*.svg`| Icons from [Material Design Icons](https://pictogrammers.com/library/mdi/).|
 
-## Imporvements
+## Improvements
+> [!NOTE]
+> Most current features will also change in the future.
+
 - [ ] Add date icon to be able to select date from calender.
 - [ ] Add local storage for todos; continue in commented code in `src/storage.js`.
 - [ ] Add edit icon to tasks. (Dialog should popup with contents and legend of Edit Task instead of task number)
