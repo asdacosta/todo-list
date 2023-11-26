@@ -23,11 +23,12 @@ Builds a todo list web application.
 <details>
 <summary>Features</summary>
 
-* Create tasks for today or specified date.
+* Create and delete tasks effortlessly.
+* Set deadlines for tasks.
 * Add description to tasks.
 * Sort task in any category.
 * Check a task to indicate as done.
-* Maximum of 5 tasksper section.
+* Maximum of 5 tasks per section.
 * Delete a task to add new one.
 * Different background colors to choose from in Settings.
 
