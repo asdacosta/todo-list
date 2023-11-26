@@ -18,17 +18,26 @@
 ## Origin
 [The Odin Project](https://www.theodinproject.com/)
 
-## Objective
-Aims to build a todo list, and it stresses on the use of JavaScript
+## Description
+Builds a todo list web application.
+<details>
+<summary>Features</summary>
+
+* Create tasks for today or specified date.
+* Add description to tasks.
+* Sort task in any category.
+* Check a task to indicate as done.
+* Maximum of 5 tasksper section.
+* Delete a task to add new one.
+* Different background colors to choose from in Settings.
+
+</details>
 
 ## Relevance
 To solidify concepts of `Object Oriented Programming (OOP) Principles`, particularly `SOLID Principles` in JavaScript. 
 
 ## Intended Audience
 Developers, users, recruiters.
-
-> [!TIP]
-> Users will need to run Webpack, install dependencies and set the configurations as done in `webpack.config.js`.
 
 ## Files
 <details>
@@ -56,9 +65,6 @@ Developers, users, recruiters.
 ## Improvements
 <details>
 <summary>Invert</summary>
-> [!NOTE]
-> Most current features will also change in the future.
-
 - [ ] Add date icon to be able to select date from calender.
 - [ ] Add local storage for todos; continue in commented code in `src/storage.js`.
 - [ ] Add edit icon to tasks. (Dialog should popup with contents and legend of Edit Task instead of task number)
