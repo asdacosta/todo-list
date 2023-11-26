@@ -30,6 +30,7 @@ Builds a todo list web application.
 * Check a task to indicate as done.
 * Maximum of 5 tasks per section.
 * Choose different background colors in Settings.
+* Throw error for empty task or past date/time.
 
 </details>
 
@@ -81,7 +82,7 @@ Developers, users, recruiters.
 
 </details>
 
-## Contributors & Curator
+## Contributor & Curator
 1. [Abraham Da Costa Silvanus](https://github.com/asdacosta) :technologist:
 
 **[🞁 Top](#origin)**
