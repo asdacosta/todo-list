@@ -58,6 +58,6 @@ Developers, users, recruiters.
 - [ ] Add a choice in settings to pick a random color for user.
 
 ## Contributors & Curator
-1. [Abraham Da Costa Silvanus](https://github.com/asdacosta)
+1. [Abraham Da Costa Silvanus](https://github.com/asdacosta) :technologist:
 
 **[🞁 Top](#todo-list)**
