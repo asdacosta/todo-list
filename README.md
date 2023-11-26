@@ -33,6 +33,8 @@ Developers, users, recruiters.
 > Users will need to run Webpack, install dependencies and set the configurations as done in `webpack.config.js`.
 
 ## Files
+<details>
+<summary>Invert</summary>
 | File | Description |
 | - | - |
 |`src/*`| Source files that are bundled into the output directory `dist/`.|
@@ -42,14 +44,20 @@ Developers, users, recruiters.
 |`algorithm.txt`| Contains JavaScript algorithm for some few part of entire code.|
 |`webpack.config.js`| Configuration file for webpack. It enables the bundling of different assets.|
 |`package*`| Contains details of project and dependencies versions.|
+</details>
 
 ## Credit
+<details>
+<summary>Invert</summary>
 | File | Description |
 | - | - |
 |`src/imgs/checklist.png`| Icon created by Graphics Plazza on [Flaticon](https://www.flaticon.com/free-icons/).|
 |`src/imgs/*.svg`| Icons from [Material Design Icons](https://pictogrammers.com/library/mdi/).|
+</details>
 
 ## Improvements
+<details>
+<summary>Invert</summary>
 > [!NOTE]
 > Most current features will also change in the future.
 
@@ -62,8 +70,9 @@ Developers, users, recruiters.
 - [ ] Add priority rank in form and indicate it on the task with a small box.
 - [ ] Make website responsive in all screen sizes.
 - [ ] Add a choice in settings to pick a random color for user.
+</details>
 
 ## Contributors & Curator
 1. [Abraham Da Costa Silvanus](https://github.com/asdacosta) :technologist:
 
-**[🞁 Top](#todo-list)**
+**[🞁 Top](#origin)**
