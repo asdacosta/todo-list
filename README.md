@@ -26,7 +26,7 @@
 **Mobile View:**
 </details>
 
-## 🌐 Origin
+## Origin
 [The Odin Project](https://www.theodinproject.com/)
 
 ## 📝 Description
@@ -101,4 +101,4 @@ Developers, users, recruiters.
 > [!NOTE]
 > Seek contributor's consent for any code usage.
 
-**[🞁 Top](#🌐-origin)**
+**[🞁 Top](#origin)**
