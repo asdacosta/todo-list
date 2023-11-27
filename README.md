@@ -2,6 +2,8 @@
     div img {transition:transform 0.2s ease-in-out;}
 
     div img:hover {transform: scale(1.1);}
+
+    div h2, div h4 {color:silver}
 </style>
 
 <div align='center'>
