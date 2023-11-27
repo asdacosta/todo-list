@@ -106,4 +106,7 @@ Developers, users, recruiters.
 
 <br>
 
+> [!NOTE]
+> Seek contributor's consent for any code usage.
+
 **[🞁 Top](#origin)**
