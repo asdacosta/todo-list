@@ -3,9 +3,7 @@
 
     div img:hover {transform: scale(1.1);}
 
-    div h2, div h4 {color:silver;}
-
-    body {background-color: black}
+    div h2, div h4 {color:gray;}
 </style>
 
 <div align='center'>
