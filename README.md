@@ -1,9 +1,3 @@
-<style type="text/css">
-    div img {transition:transform 0.2s ease-in-out;}
-    div img:hover {transform: scale(1.1);}
-    div h2, div h4 {color:gray;}
-</style>
-
 <div align='center'>
     <h1>Todo-List Web App</h1>
     <h4>💻 Languages</h4>
@@ -107,4 +101,4 @@ Developers, users, recruiters.
 > [!NOTE]
 > Seek contributor's consent for any code usage.
 
-**[🞁 Top](#origin)**
+**[🞁 Top](#🌐-origin)**
