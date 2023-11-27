@@ -1,5 +1,8 @@
+<center>
+
+# Todo-List Web App
+</center>
 <div align='center'>
-    <h1>Todo-List Web App</h1>
     <h4>💻 Languages</h4>
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML badge">
     <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS badge">
@@ -26,7 +29,7 @@
 **Mobile View:**
 </details>
 
-## Origin
+## 🌐 Origin
 [The Odin Project](https://www.theodinproject.com/)
 
 ## 📝 Description
@@ -101,4 +104,4 @@ Developers, users, recruiters.
 > [!NOTE]
 > Seek contributor's consent for any code usage.
 
-**[🞁 Top](#origin)**
+**[🞁 Top](#todo-list-web-app)**
