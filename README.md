@@ -55,6 +55,9 @@ To solidify concepts of `Object Oriented Programming (OOP) Principles`, particul
 ## 👥 Intended Audience
 Developers, users, recruiters.
 
+> [!NOTE]
+> Users can install all dependencies via `npm install` using `package.json` file.
+
 ## 📂 Files
 <details>
 <summary>Invert</summary>
@@ -102,7 +105,7 @@ Developers, users, recruiters.
 
 <br>
 
-> [!NOTE]
+> [!IMPORTANT]
 > Seek contributor's consent for any code usage.
 
 **[🞁 Top](#todo-list-web-app)**
