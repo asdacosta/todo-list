@@ -32,6 +32,7 @@
 <br>
 
 **Mobile View:**
+
 Yet to
 
 </details>
