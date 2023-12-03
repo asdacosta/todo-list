@@ -78,6 +78,8 @@ Developers, users, recruiters.
 |`algorithm.txt`| Contains JavaScript algorithm for some few part of entire code.|
 |`webpack.config.js`| Configuration file for webpack. It enables the bundling of different assets.|
 |`package*`| Contains details of project and dependencies versions.|
+|`view-imgs/*`| Live demo and different screen views used in `README.md`.|
+
 </details>
 
 ## ©️ Credit
