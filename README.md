@@ -30,7 +30,10 @@
 
 <img src="./view-imgs/desktop.png" alt="desktop view">
 <br>
+
 **Mobile View:**
+Yet to
+
 </details>
 
 ## 🌐 Origin
