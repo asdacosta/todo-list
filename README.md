@@ -20,13 +20,15 @@
 
 **Demo:**
 
-![Live Demo](./todo-demo.gif)
+![Live Demo](./view-imgs/todo-demo.gif)
 
 <details>
 
 **<summary>Screen views</summary>**
 
 **Desktop View:**
+
+<img src="./view-imgs/desktop.png" alt="desktop view">
 <br>
 **Mobile View:**
 </details>
