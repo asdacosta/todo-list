@@ -20,7 +20,7 @@
 
 **Demo:**
 
-![Live Demo](./view-imgs/todo-demo.gif)
+![Live Demo](./readme-assets/todo-demo.gif)
 
 <details>
 
@@ -28,7 +28,7 @@
 
 **Desktop View:**
 
-<img src="./view-imgs/desktop.png" alt="desktop view">
+<img src="./readme-assets/desktop.png" alt="desktop view">
 <br>
 
 **Mobile View:**
@@ -78,7 +78,7 @@ Developers, users, recruiters.
 |`algorithm.txt`| Contains JavaScript algorithm for some few part of entire code.|
 |`webpack.config.js`| Configuration file for webpack. It enables the bundling of different assets.|
 |`package*`| Contains details of project and dependencies versions.|
-|`view-imgs/*`| Live demo and different screen views used in `README.md`.|
+|`readme-assets/*`| Live demo and different screen views used in `README.md`.|
 
 </details>
 
