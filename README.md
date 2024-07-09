@@ -1,13 +1,9 @@
 <div align='center'>
 
-# Todo-List Web App
+# Todo List App
 </div>
 <div align='center'>
-    <h3>💻 Languages</h3>
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML badge">
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS badge">
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript badge">
-    <h3>🔧 Technologies</h3>
+    <h3>💻 Technologies</h3>
     <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux badge">
     <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code badge">
     <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git badge">
@@ -60,7 +56,7 @@ Builds a todo list web application.
 To solidify concepts of `Object Oriented Programming (OOP) Principles`, particularly `SOLID Principles` in JavaScript. 
 
 ## 👥 Intended Audience
-Developers, users, recruiters.
+Developers, users, and non-developers.
 
 > [!NOTE]
 > Users can install all dependencies via `npm install` using `package.json` file.
@@ -111,10 +107,5 @@ Developers, users, recruiters.
 
 ## 👤 Curator
 1. [Abraham Da Costa Silvanus](https://github.com/asdacosta) 
-
-<br>
-
-> [!IMPORTANT]
-> Seek contributor's consent for any code usage.
 
 **[🞁 Top](#todo-list-web-app)**
