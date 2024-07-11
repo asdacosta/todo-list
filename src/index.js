@@ -1,274 +1,301 @@
-import './style.css';
-import * as settingsFunctions from './setting';
-import * as sectionFunctions from './sectionsLogic';
-import storeHouse from './storage';
+import "./style.css";
+import * as settingsFunctions from "./setting";
+import * as sectionFunctions from "./sectionsLogic";
+import storeHouse from "./storage";
 
 const importAllImages = (function () {
-    function importAll(r) {
-        return r.keys().map(r);
-    }
+  function importAll(r) {
+    return r.keys().map(r);
+  }
 
-    const imgs = importAll(require.context('./imgs', false, /\.(png|jpe?g|svg)$/));
+  const imgs = importAll(
+    require.context("./imgs", false, /\.(png|jpe?g|svg)$/)
+  );
 })();
 
 const launchTodayAtPageLoad = (function () {
-    sectionFunctions.displayHeader('Today');
-    sectionFunctions.createTodayAddTask();
-    settingsFunctions.setColor();
+  sectionFunctions.displayHeader("Today");
+  sectionFunctions.createTodayAddTask();
+  settingsFunctions.setColor();
 })();
 
 const toggleModule = function (moduleSection, isActive) {
-    launchToday.todayActive = false;
-    launchUpcoming.upcomingActive = false;
-    launchConsolidated.consolidatedActive = false;
-    launchPersonal.personalActive = false;
-    launchWork.workActive = false;
-    launchFamily.familyActive = false;
-    launchOther.otherActive = false;
-    launchSettings.settingsActive = false;
+  launchToday.todayActive = false;
+  launchUpcoming.upcomingActive = false;
+  launchConsolidated.consolidatedActive = false;
+  launchPersonal.personalActive = false;
+  launchWork.workActive = false;
+  launchFamily.familyActive = false;
+  launchOther.otherActive = false;
+  launchSettings.settingsActive = false;
 
-    isActive = true;
-    if (isActive) {
-        launchToday.todaySection.style.display = 'none';
-        launchUpcoming.upcomingSection.style.display = 'none';
-        launchConsolidated.consolidatedSection.style.display = 'none';
-        launchPersonal.personalSection.style.display = 'none';
-        launchWork.workSection.style.display = 'none';
-        launchFamily.familySection.style.display = 'none';
-        launchOther.otherSection.style.display = 'none';
-        launchSettings.settingsSection.style.display = 'none';
+  isActive = true;
+  if (isActive) {
+    launchToday.todaySection.style.display = "none";
+    launchUpcoming.upcomingSection.style.display = "none";
+    launchConsolidated.consolidatedSection.style.display = "none";
+    launchPersonal.personalSection.style.display = "none";
+    launchWork.workSection.style.display = "none";
+    launchFamily.familySection.style.display = "none";
+    launchOther.otherSection.style.display = "none";
+    launchSettings.settingsSection.style.display = "none";
 
-        moduleSection.style.display = 'flex';
-    }
-}
+    moduleSection.style.display = "flex";
+  }
+};
 
 const launchToday = (function () {
-    const todayDiv = document.querySelectorAll('.today');
-    const todaySection = document.querySelector('.today-module');
-    const isFullSpan = document.querySelector('main > span');
-    let todayActive = false;
+  const todayDiv = document.querySelectorAll(".today");
+  const todaySection = document.querySelector(".today-module");
+  const isFullSpan = document.querySelector("main > span");
+  let todayActive = false;
 
-    todayDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchToday.todaySection, launchToday.todayActive);
+  todayDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(launchToday.todaySection, launchToday.todayActive);
 
-            isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Today');
-            if (todaySection.textContent === '') {
-                sectionFunctions.createTodayAddTask();
-            }
-        })
-    })
+      isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Today");
+      if (todaySection.textContent === "") {
+        sectionFunctions.createTodayAddTask();
+      }
+    });
+  });
 
-    return { todayActive, todaySection, isFullSpan };
+  return { todayActive, todaySection, isFullSpan };
 })();
 
 const launchUpcoming = (function () {
-    const upcomingDiv = document.querySelectorAll('.upcoming');
-    const upcomingSection = document.querySelector('.upcoming-module');
-    let upcomingActive = false;
+  const upcomingDiv = document.querySelectorAll(".upcoming");
+  const upcomingSection = document.querySelector(".upcoming-module");
+  let upcomingActive = false;
 
-    upcomingDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchUpcoming.upcomingSection, launchUpcoming.upcomingActive);
+  upcomingDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(
+        launchUpcoming.upcomingSection,
+        launchUpcoming.upcomingActive
+      );
 
-            launchToday.isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Upcoming');
-            if (upcomingSection.textContent === '') {
-                sectionFunctions.createUpcomingAddTask();
-            }
-        })
-    })
+      launchToday.isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Upcoming");
+      if (upcomingSection.textContent === "") {
+        sectionFunctions.createUpcomingAddTask();
+      }
+    });
+  });
 
-    return { upcomingActive, upcomingSection };
+  return { upcomingActive, upcomingSection };
 })();
 
 const launchConsolidated = (function () {
-    const consolidatedDiv = document.querySelectorAll('.consolidated');
-    const consolidatedSection = document.querySelector('.consolidated-module');
-    let consolidatedActive = false;
+  const consolidatedDiv = document.querySelectorAll(".consolidated");
+  const consolidatedSection = document.querySelector(".consolidated-module");
+  let consolidatedActive = false;
 
-    consolidatedDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchConsolidated.consolidatedSection, launchConsolidated.consolidatedActive);
+  consolidatedDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(
+        launchConsolidated.consolidatedSection,
+        launchConsolidated.consolidatedActive
+      );
 
-            launchToday.isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Consolidated Tasks');
-            consolidatedSection.innerHTML = `${sectionFunctions.consolidatedArray[0]} ${sectionFunctions.consolidatedArray[1]}`;
+      launchToday.isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Consolidated Tasks");
+      consolidatedSection.innerHTML = `${sectionFunctions.consolidatedArray[0]} ${sectionFunctions.consolidatedArray[1]}`;
 
-            displayDescriptionInCategorySections('.consolidated-module');
-            removeDeleteSpansInCategorySections('.consolidated-module');
-            sectionFunctions.displayEmptyForCategorySections('.consolidated-module');
-            sectionFunctions.colorGeneratedTasks();
-        })
-    })
-    return { consolidatedActive, consolidatedSection };
+      displayDescriptionInCategorySections(".consolidated-module");
+      removeDeleteSpansInCategorySections(".consolidated-module");
+      sectionFunctions.displayEmptyForCategorySections(".consolidated-module");
+      sectionFunctions.colorGeneratedTasks();
+    });
+  });
+  return { consolidatedActive, consolidatedSection };
 })();
 
 const launchPersonal = (function () {
-    const personalDiv = document.querySelectorAll('.personals');
-    const personalSection = document.querySelector('.personal-module');
-    
-    let personalActive = false;
-    personalDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchPersonal.personalSection, launchPersonal.personalActive);
+  const personalDiv = document.querySelectorAll(".personals");
+  const personalSection = document.querySelector(".personal-module");
 
-            launchToday.isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Personal');
-            personalSection.innerHTML = sectionFunctions.categories.personal;
+  let personalActive = false;
+  personalDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(
+        launchPersonal.personalSection,
+        launchPersonal.personalActive
+      );
 
-            displayDescriptionInCategorySections('.personal-module');
-            removeDeleteSpansInCategorySections('.personal-module');
-            sectionFunctions.displayEmptyForCategorySections('.personal-module');
-            sectionFunctions.colorGeneratedTasks();
-        })
-    })
+      launchToday.isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Personal");
+      personalSection.innerHTML = sectionFunctions.categories.personal;
 
-    return { personalActive, personalSection };
+      displayDescriptionInCategorySections(".personal-module");
+      removeDeleteSpansInCategorySections(".personal-module");
+      sectionFunctions.displayEmptyForCategorySections(".personal-module");
+      sectionFunctions.colorGeneratedTasks();
+    });
+  });
+
+  return { personalActive, personalSection };
 })();
 
 const launchWork = (function () {
-    const workDiv = document.querySelectorAll('.works');
-    const workSection = document.querySelector('.work-module');
+  const workDiv = document.querySelectorAll(".works");
+  const workSection = document.querySelector(".work-module");
 
-    let workActive = false;
-    workDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchWork.workSection, launchWork.workActive);
+  let workActive = false;
+  workDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(launchWork.workSection, launchWork.workActive);
 
-            launchToday.isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Work');
-            workSection.innerHTML = sectionFunctions.categories.work;
+      launchToday.isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Work");
+      workSection.innerHTML = sectionFunctions.categories.work;
 
-            displayDescriptionInCategorySections('.work-module');
-            removeDeleteSpansInCategorySections('.work-module');
-            sectionFunctions.displayEmptyForCategorySections('.work-module');
-            sectionFunctions.colorGeneratedTasks();
-        })
-    })
+      displayDescriptionInCategorySections(".work-module");
+      removeDeleteSpansInCategorySections(".work-module");
+      sectionFunctions.displayEmptyForCategorySections(".work-module");
+      sectionFunctions.colorGeneratedTasks();
+    });
+  });
 
-    return { workActive, workSection };
+  return { workActive, workSection };
 })();
 
 const launchFamily = (function () {
-    const familyDiv = document.querySelectorAll('.families');
-    const familySection = document.querySelector('.family-module');
+  const familyDiv = document.querySelectorAll(".families");
+  const familySection = document.querySelector(".family-module");
 
-    let familyActive = false;
-    familyDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchFamily.familySection, launchFamily.familyActive);
+  let familyActive = false;
+  familyDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(launchFamily.familySection, launchFamily.familyActive);
 
-            launchToday.isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Family');
-            familySection.innerHTML = sectionFunctions.categories.family;
+      launchToday.isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Family");
+      familySection.innerHTML = sectionFunctions.categories.family;
 
-            displayDescriptionInCategorySections('.family-module');
-            removeDeleteSpansInCategorySections('.family-module');
-            sectionFunctions.displayEmptyForCategorySections('.family-module');
-            sectionFunctions.colorGeneratedTasks();
-        })
-    })
+      displayDescriptionInCategorySections(".family-module");
+      removeDeleteSpansInCategorySections(".family-module");
+      sectionFunctions.displayEmptyForCategorySections(".family-module");
+      sectionFunctions.colorGeneratedTasks();
+    });
+  });
 
-    return { familyActive, familySection} ;
+  return { familyActive, familySection };
 })();
 
 const launchOther = (function () {
-    const otherDiv = document.querySelectorAll('.others');
-    const otherSection = document.querySelector('.other-module');
+  const otherDiv = document.querySelectorAll(".others");
+  const otherSection = document.querySelector(".other-module");
 
-    let otherActive = false;
-    otherDiv.forEach((item) => {
-        item.addEventListener('click', () => {
-            toggleModule(launchOther.otherSection, launchOther.otherActive);
+  let otherActive = false;
+  otherDiv.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleModule(launchOther.otherSection, launchOther.otherActive);
 
-            launchToday.isFullSpan.innerHTML = '';
-            sectionFunctions.displayHeader('Other');
-            otherSection.innerHTML = sectionFunctions.categories.other;
+      launchToday.isFullSpan.innerHTML = "";
+      sectionFunctions.displayHeader("Other");
+      otherSection.innerHTML = sectionFunctions.categories.other;
 
-            displayDescriptionInCategorySections('.other-module');
-            removeDeleteSpansInCategorySections('.other-module');
-            sectionFunctions.displayEmptyForCategorySections('.other-module');
-            sectionFunctions.colorGeneratedTasks();
-        })
-    })
+      displayDescriptionInCategorySections(".other-module");
+      removeDeleteSpansInCategorySections(".other-module");
+      sectionFunctions.displayEmptyForCategorySections(".other-module");
+      sectionFunctions.colorGeneratedTasks();
+    });
+  });
 
-    return { otherActive, otherSection };
+  return { otherActive, otherSection };
 })();
 
 const launchSettings = (function () {
-    const settingsIcon = document.querySelector('.settings');
-    const settingsSection = document.querySelector('.settings-module');
-    const colorChangeText = document.createElement('p');
-    const colorContainer = document.createElement('div');
+  const settingsIcon = document.querySelector(".settings");
+  const settingsSection = document.querySelector(".settings-module");
+  const colorChangeText = document.createElement("p");
+  const colorContainer = document.createElement("div");
 
-    colorChangeText.textContent = 'Choose your desired color:';
-    colorContainer.classList.add('colorContainer');
+  colorChangeText.textContent = "Choose your desired color:";
+  colorContainer.classList.add("colorContainer");
 
-    for (let m = 0; m < 6; m++) {
-        const colorCircle = document.createElement('span');
-        colorCircle.classList.add(`colorCircle${m}`);
-        colorContainer.appendChild(colorCircle);
-    }
+  for (let m = 0; m < 6; m++) {
+    const colorCircle = document.createElement("span");
+    colorCircle.classList.add(`colorCircle${m}`);
+    colorContainer.appendChild(colorCircle);
+  }
 
-    let settingsActive = false;
-    settingsIcon.addEventListener('click', () => {
-        toggleModule(launchSettings.settingsSection, launchSettings.settingsActive);
-        
-        launchToday.isFullSpan.innerHTML = '';
-        sectionFunctions.displayHeader('Settings');
+  let settingsActive = false;
+  settingsIcon.addEventListener("click", () => {
+    toggleModule(launchSettings.settingsSection, launchSettings.settingsActive);
 
-        settingsSection.appendChild(colorChangeText);
-        settingsSection.appendChild(colorContainer);
-        settingsFunctions.paintColorCircle();
-        settingsFunctions.setColor();
-    })
+    launchToday.isFullSpan.innerHTML = "";
+    sectionFunctions.displayHeader("Settings");
 
-    return { settingsActive, settingsSection };
+    settingsSection.appendChild(colorChangeText);
+    settingsSection.appendChild(colorContainer);
+    settingsFunctions.paintColorCircle();
+    settingsFunctions.setColor();
+  });
+
+  return { settingsActive, settingsSection };
 })();
 
 const generateInfo = (function () {
-    const infoIcon = document.querySelector('.info');
-    const infoContent = document.querySelector('nav > div:last-child > span');
+  const infoIcon = document.querySelector(".info");
+  const infoContent = document.querySelector("nav > div:last-child > span");
 
-    infoIcon.addEventListener('mouseover', () => {
-        infoContent.style.border = '2px solid white';
-        infoContent.style.padding = '5px';
-        infoContent.innerHTML = "Add tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks in the named sections."
-    })
-    infoIcon.addEventListener('mouseout', () => {
-        infoContent.style.border = 'none';
-        infoContent.style.padding = '0';
-        infoContent.textContent = '';
-    })
+  infoIcon.addEventListener("mouseover", () => {
+    infoContent.style.border = "2px solid white";
+    infoContent.style.padding = "5px";
+    infoContent.innerHTML =
+      "Add tasks in 'Today' or 'Upcoming' section and they will be sorted according to their respective categories. You can add a maximum of 5 tasks in the named sections.";
+  });
+  infoIcon.addEventListener("mouseout", () => {
+    infoContent.style.border = "none";
+    infoContent.style.padding = "0";
+    infoContent.textContent = "";
+  });
 })();
 
 const displayDescriptionInCategorySections = function (sectionClass) {
-    const descriptionBox = document.querySelector('main > div');
-    const descriptionContent = document.querySelector('main > div > span');
-    const categoryDescriptions = document.querySelectorAll(`${sectionClass} .description`);
+  const descriptionBox = document.querySelector("main > div");
+  const descriptionContent = document.querySelector("main > div > span");
+  const categoryDescriptions = document.querySelectorAll(
+    `${sectionClass} .description`
+  );
 
-    categoryDescriptions.forEach((element) => {
-        element.addEventListener('mouseover', () => {
-            descriptionBox.style.display = 'flex';
-            descriptionContent.textContent = element.dataset.value;
-        })
-        element.addEventListener('mouseout', () => {
-            descriptionBox.style.display = 'none';
-            descriptionContent.textContent = '';
-        })
-    })
+  categoryDescriptions.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      descriptionBox.style.display = "flex";
+      descriptionContent.textContent = element.dataset.value;
+    });
+    element.addEventListener("mouseout", () => {
+      descriptionBox.style.display = "none";
+      descriptionContent.textContent = "";
+    });
+  });
 };
 
 const removeDeleteSpansInCategorySections = function (sectionClass) {
-    const categoryDeleteSpans = document.querySelectorAll(`${sectionClass} .deleteTask`);
+  const categoryDeleteSpans = document.querySelectorAll(
+    `${sectionClass} .deleteTask`
+  );
 
-    categoryDeleteSpans.forEach((element) => {
-        element.style.display = 'none';
-    })
-}
+  categoryDeleteSpans.forEach((element) => {
+    element.style.display = "none";
+  });
+};
+
+const slideNavOnClick = (function () {
+  const slider = document.querySelector("header > img");
+  const nav = document.querySelector("nav");
+
+  slider.addEventListener("click", () => {
+    nav.classList.contains("slide")
+      ? nav.classList.remove("slide")
+      : nav.classList.add("slide");
+  });
+})();
 
 const storeAndRetrieveLocalStorage = (function () {
-    storeHouse();
+  storeHouse();
 })();
