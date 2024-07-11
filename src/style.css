@@ -38,18 +38,14 @@ nav {
   height: 100%;
   filter: blur(5rem);
   width: 0;
-  transition: all 1s ease-in-out;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 nav.slide {
-  animation: slide 1s ease-in-out forwards;
-}
-
-@keyframes slide {
-  to {
-    filter: blur(0);
-    width: 15rem;
-  }
+  filter: blur(0);
+  width: 15rem;
+  opacity: 1;
 }
 
 nav > section {
@@ -149,10 +145,10 @@ header {
 }
 
 header > img {
-  width: 2.8rem;
+  width: 2.7rem;
   height: auto;
   background: none;
-  animation: blink 2s ease-in-out infinite;
+  animation: blink 1.5s ease-in-out infinite;
   cursor: pointer;
 }
 
